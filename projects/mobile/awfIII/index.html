@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<title>awf III期</title>
+<link rel="stylesheet" href="./lib/swiper-3.3.1.min.css">
+<link rel="stylesheet" href="./css/app.css">
+<script src="./lib/flexible.js"></script>
+<script src="./lib/resLoader.js"></script>
+<script src="./lib/zepto.min.js"></script>
+<script src="./lib/touch-0.2.14.min.js"></script>
+<script src="./lib/swiper-3.3.1.min.js"></script>
+<script src="./lib/swiper.animate1.0.2.min.js"></script>
+<script src="./lib/chart.js"></script>
+</head>
+<body>
+<div id="loading">
+	<div class="loading-inner">
+		<img src="./img/loading_car.png" alt="" class="loading-car">
+		<img src="./img/loading.gif" alt="">
+	</div>
+</div>
+<div id="face-page" class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+	    	<ul class="slide-bg"></ul>
+			<div class="slide-content ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+				<div class="logo"><img src="./img/face_logo.png" alt=""></div>
+				<div class="text">
+					<p>自1961年始，非洲野生动物基金会</p>
+					<p>为保护非洲野生动物自然资源</p>
+					<p>为非洲原生态永存而努力</p>
+				</div>
+			</div>
+			<div class="swiper-tip ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"><img src="./img/over_face_21.png" alt=""></div>
+		</div>
+		<div class="swiper-slide swiper-slide2">
+			<div class="swiper-slide-inner">
+				<div class="top">谁，会最先离开我们？</div>
+				<div class="stageBox">
+					<div id="stage">
+						<!-- <dt id="shadow"></dt> -->
+					</div>
+				</div>
+				<div class="bottom text-center">
+					<div class="name">黑犀牛</div>
+					<div class="headDescribe2">1960年代至今，已经骤降了97.6%。</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="over-layer over-layer-info animated fadeIn swiper-container" id="animal-info">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide over-layer-face text-center">
+			<div class="face-top ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0s"><img class="over_faceImg" src="" alt=""></div>
+			<div class="text-center">
+				<div class="animal-title ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+					<span class="icon-title-left"></span>
+					<span class="_title name"></span>
+					<span class="icon-title-right"></span>
+				</div>
+			</div>
+			<div class="text-center ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.6s">
+				<div class="face-bottom">
+					<span class="icon-text-left"></span>
+					<div class="text text-center over_text"></div>
+					<span class="icon-text-right"></span>
+				</div>
+			</div>
+			<div class="swiper-tip ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.9s"><img src="./img/over_face_21.png" alt=""></div>
+        </div>
+        <div class="swiper-slide">
+             <div class="swiper-container" id="animal-info-cont">
+                <div class="swiper-wrapper">
+                     <div class="swiper-slide over-layer-cont text-center">
+						<div class="animal-title ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+							<span class="icon-title-left"></span>
+							<div class="_title"><span class="title"></span>，<span class="text-orange dieYear"></span>年</div>
+							<span class="icon-title-right"></span>
+						</div>
+						<div class="face-bottom ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+							<span class="icon-text-left"></span>
+							<div class="text text-center headDescribe1"></div>
+							<span class="icon-text-right"></span>
+						</div>
+						<div class="chart">
+							<canvas id="chart-area" width="200" height="200">
+						</div>
+						<div class="describe ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.6s">
+							<div class="img"><img src="" class="describeImg" alt=""></div>
+							<div class="text describeText"></div>
+						</div>
+						<div class="wechat ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.9s">
+							<div class="wechat-cont">
+								<div class="wechat-top"><img src="" class="wechatImg" alt=""></div>
+								<div class="wechat-bottom">
+									<h3 class="wechat-title"><a href="#" class="wechatTitle wechatLink"></a></h3>
+									<p class="wechat-describe wechatDescribe"></p>
+									<p class="link"><a href="" class="wechatLink">点击了解我更多</a></p>
+								</div>
+							</div>
+							<div class="bottom-tip"></div>
+						</div>
+						<div class="footer">
+							<button class="block-btn sharebtn">我要保护穿<span class="name"></span>！</button>
+							<button class="block-btn morebtn">保护更多动物！</button>
+						</div>
+                     </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+             </div>
+        </div>
+    </div>
+</div>
+<div class="over-layer over-layer-timeOver animated fadeIn" id="over-layer-timeOver">
+	<div class="over-layer-inner">
+		<div class="over-layer-bg"></div>
+		<div class="over-layer-content">
+			<div class="topArea">
+				<div class="textArea text-center">
+					<p>如果不仔细算过</p>
+					<p>原来，我们只剩下有生之年的<span class="text-orange">相伴不离</span></p>
+					<p><span class="text-orange">一己之力</span>非常弱小</p>
+					<p>但是点点滴滴的<span class="text-orange">支持与帮助</span></p>
+					<p>我们就能一起<span class="text-orange">拉住</span>这根濒危的命运之线</p>
+					<p><span class="text-orange">守护非洲</span>这片共同的原生态家园</p>
+				</div>
+			</div>
+			<div class="bottomArea text-center">
+				<div class="btnbox">
+					<button class="block-btn sharebtn">生息与共</button>
+				</div>
+				<h3 class="link"><a href="#">非洲野生动物基金会</a></h3>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="over-layer over-layer-share animated fadeIn" id="over-layer-share">
+	<div class="over-layer-inner">
+		<div class="over-layer-bg"></div>
+		<div class="over-layer-content">
+			<img src="./img/shareTip.png" alt="" class="tipimg">
+			<div class="textArea text-center">
+				<p>有生之年</p>
+				<p>我选择与大象不离不弃</p>
+			</div>	
+		</div>
+	</div>
+</div>
+<div class="over-layer over-layer-qrcode fadeIn" id="over-layer-qrcode">
+	<div class="over-layer-inner">
+		<div class="over-layer-bg"></div>
+		<div class="over-layer-content text-center">
+			<p>扫描二维码，一起行动</p>	
+			<div class="qr"><img src="./img/qrcode.jpg" alt=""></div>
+			<h3><a href="#">非洲野生动物基金会</a></h3>
+			<p class="tip-text text-orange">没有买卖没有杀害</p>
+		</div>
+	</div>
+</div>
+<div class="dieTip animated fadeInDown" data-savestate="false">
+	<div class="inner text-center">
+		<span class="icon animated pulse infinite"></span>
+		<span class="name">穿山甲</span>
+		<span class="time">5</span>
+		秒后消失
+		<button class="savebtn">点击拯救</button>
+	</div>
+</div>
+<script src="./js/app.js"></script>
+</body>
+</html>
