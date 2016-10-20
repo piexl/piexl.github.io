@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="author" content="zepo" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>会员注册_璞富腾酒店及度假村</title>
+<link rel="stylesheet" href="http://preferred.dragontrail.cn/css/mobile/global.css">
+<link rel="stylesheet" href="http://preferred.dragontrail.cn/js/mobile/swiper/css/swiper.css">
+<link rel="stylesheet" href="http://preferred.dragontrail.cn/css/mobile/main.css" type="text/css" />
+<script src="http://preferred.dragontrail.cn/js/mobile/zepto.min.js"></script>
+<script src="http://preferred.dragontrail.cn/js/mobile/swiper/js/swiper.min.js"></script>
+<script src='http://preferred.dragontrail.cn/js/mobile/base.js'></script>
+</head>
+<body>
+<div id="wrapper">
+<header id="Header" class="ub ub-ac">
+	<a href="javascript:window.history.go(-1)" class="goBack">返回</a>
+    <h2 class="ub-f1">注册</h2>
+	<a class="smallTopNav" href="javascript:"><span></span><span></span><span></span></a>
+	<div class="searchHotel ver" id="J_inputSearchBox"><a href="/search_form">找酒店</a></div>
+</header>
+<section class="mainNav">
+	<ul class="list">
+        <li><a data-role="link" href="/" class="cur">首页</a></li>
+        <li><a data-role="link" href="#">关于璞富腾集团</a></li>
+        <li><a data-role="link" href="/our_brands">五大精选系列</a></li>
+        <li><a data-role="link" href="/offers">特别优惠</a></li>
+        <li><a data-role="link" href="/about_us">关于我们</a></li>
+        <li><a data-role="link" href="/iprefer">iprefer·会员计划</a></li>
+        <li><a data-role="link" href="/contact_us">联系我们</a></li>
+        <li><a data-role="link" href="https://preferredhotels.com/">ENGLISH</a></li>
+        <li class="social">
+            <a href="http://weibo.com/u/3877699273" class="wb">微博</a>
+            <div class="weixin">
+                <a href="javascript:" class="wx">微信</a>
+                <div class="xc">
+                    <img src="http://preferred.dragontrail.cn/images/preferred/ewm.jpg" />
+                    <p>ID:preferredHotels</p>
+                </div>
+            </div>
+        </li>
+    </ul> 
+</section>
+
+<script>
+    $(".mainNav .list a[data-role='link']").click(function(){
+        $(this).addClass("cur").parent().siblings().children().removeClass("cur");
+    });
+</script>
+	<!--mainNav end-->
+<section class="container">	
+	<div class="formBox">
+		
+		<div class="tips">
+			<P>免费加入<em>i</em>Prefer会员计划获得奖励积分，兑换全球酒店礼金券。</p>
+		</div>
+	
+		<form action="/iprefer_sign_up" method="post" onSubmit="return checkstep1()">
+    	<ul class="list">
+        	<li class="ub ub-ac cw">
+            	<span>*</span>
+            	<input class="txtCss ub-f1" type="text" placeholder="称谓" name="chengwei" id="chengwei"/>
+				<i></i>
+				<div class="input-cover cw"></div>
+            </li>
+        
+        	<li class="ub ub-ac">
+            	<span>*</span>
+            	<input class="txtCss ub-f1" type="text" placeholder="姓名" name="name" id="name"/>
+            </li>
+            
+        	<li class="ub ub-ac">
+            	<span>*</span>
+            	<input class="txtCss ub-f1" type="text" placeholder="出生日期" name="birthday" id="birthday"/>
+            </li>
+            
+        	<li class="ub ub-ac">
+            	<span>*</span>
+            	<input class="txtCss ub-f1" type="text" placeholder="省" name="provence" id="sheng"/>
+				<i></i>
+				<div class="input-cover sheng"></div>
+            </li>
+			
+        	<li class="ub ub-ac">
+            	<span>*</span>
+            	<input class="txtCss ub-f1" type="text" placeholder="市" name="city" id="shi"/>
+				<i></i>
+				<div class="input-cover city"></div>
+            </li>
+			
+        	<li class="ub ub-ac">
+            	<span>*</span>
+            	<input class="txtCss ub-f1" type="text" placeholder="电子邮箱" name="email" id="email"/>
+            </li>
+			
+        	<li class="ub ub-ac">
+            	<span></span>
+            	<input class="txtCss ub-f1" type="text" placeholder="地址" name="address1" id="address1"/>
+            </li>
+
+        	<li class="ub ub-ac">
+            	<span></span>
+            	<input class="txtCss ub-f1" type="text" placeholder="邮政编码" name="post_code" id="post_code"/>
+            </li>
+			
+        	<li class="ub ub-ac">
+            	<span></span>
+            	<input class="txtCss ub-f1" type="text" placeholder="电话" name="tel" id="tel"/>
+            </li>
+
+        	<li class="ub ub-ac">
+            	<span>*</span>
+            	<input class="txtCss ub-f1" type="text" placeholder="邮件订阅" name="subscrible_info" id="subscrible_info" />
+				<i></i>
+				<div class="input-cover rss"></div>
+            </li>
+
+        	<li class="clause tc">
+            	<input type="checkbox" id="c1" value="0"/><label for="c1">我接受<a href="https://www.iprefer.com/terms-and-conditions/">服务及条款</a></label>
+            </li>
+        </ul>
+
+		<div class="btnBox">
+			<button type="submit" class="btnCss">提交并进行偏好设置</button>
+		</div>
+
+		</form>
+    </div><!--formBox end-->
+
+</section><!--container end-->
+
+<section class="mark"></section>
+<section class="btfix" id="J_btfix">
+	<div class="listBox" id="J_bt_list"></div>
+	<div class="btnBox">
+		<a href="javascript:" class="confirm">确定</a>
+		<a href="javascript:" class="cancel">取消</a>
+	</div>
+</section><!--btfix end-->
+
+<script>
+/**
+ * 注册选择
+ */	
+function SelectForm(){
+	var self = this;
+	self.htmlArr = [];
+	//列表点击
+	function listClickEvent(){
+		self.htmlArr = [];
+		// $("body").on('click','#J_bt_list li',function(e){
+		// 	if(!$(this).children('i').length > 0){
+		// 		if(self.ele == 'rss'){
+		// 			$(this).append('<i></i>');
+		// 			var _html = $(this).children('span').html();
+		// 			self.htmlArr.push(_html);
+		// 			console.log(self.htmlArr);
+		// 		}else{
+		// 			$(this).append('<i></i>').siblings().find('i').remove();
+		// 			var _html = $(this).children('span').html();
+		// 			self.htmlArr[0] = _html;
+		// 			console.log(self.htmlArr);
+		// 		}
+		// 	}
+		// 	e.stopPropagation();
+		// });
+		$("body").on('tap','#J_bt_list li',function(e){
+			if(!$(this).children('i').length > 0){
+				if(self.ele == 'rss'){
+					$(this).append('<i></i>');
+					var _html = $(this).children('span').html();
+					self.htmlArr.push(_html);
+					console.log(self.htmlArr);
+				}else{
+					$(this).append('<i></i>').siblings().find('i').remove();
+					var _html = $(this).children('span').html();
+					self.htmlArr[0] = _html;
+					console.log(self.htmlArr);
+				}
+			}
+			e.stopPropagation();
+		});
+	}
+
+	
+	//确定按钮
+	function confirm(){	
+		$("#J_btfix .confirm").on('click',function(){
+			$("#J_btfix").removeClass('open');
+			var content = self.htmlArr.join();
+			$('.'+self.ele).siblings('input').val(content);
+			self.htmlArr = [];
+			$(".mark").hide();
+		});
+	}
+	
+	//取消按钮
+	function cancle(){
+		$("#J_btfix .cancel,.mark").on('click',function(){
+			if($("#J_btfix").hasClass('open')){
+				$("#J_btfix").removeClass('open');
+			}
+			$(".mark").hide();
+		});
+
+	}
+
+	self.cw = '<ul class="list">'
+				+'<li><span>先生</span></li>'
+				+'<li><span>女士</span></li>'
+				+'</ul>';
+
+	self.rss = '<ul class="list">'
+				+'<li><span>电子报告</span></li>'
+				+'<li><span>特别优惠</span></li>'
+				+'<li><span>会员问卷</span></li>'
+				+'<li><span>合作伙伴特别优惠</span></li>'
+				+'</ul>';
+	self.city ={
+		list:[
+				{	province:'北京',
+					No:'01',
+					cityareaname:['东城区','西城区','崇文区','宣武区','朝阳区','海淀区','丰台区','石景山'],
+					cityNo:['0101','0102','0103','0104','0105','0106','0107','0108']
+				},
+				
+				
+				{	province:'深圳',
+					No:'02',
+					cityareaname:['罗湖','福田','南山','盐田','宝安','龙岗'],
+					cityNo:['0201','0202','0203','0204','0205','0206']
+				},
+				
+				{	province:'上海',
+					No:'03',
+					cityareaname:['宝山','金山','南市','长宁','静安','青浦','崇明','卢湾','松江','奉贤','浦东','杨浦','虹口','普陀','闸北','黄浦','闵行','徐汇','嘉定','南汇'],
+					cityNo:['0301','0302','0303','0304','0305','0306','0307','0308','0309','0310','0311','0312','0313','0314','0315','0316','0317','0318','0319','0320']
+				},
+				
+				
+				{	province:'重庆',
+					No:'04',
+					cityareaname:['渝中','江北','沙坪坝','南岸','九龙坡','大渡口'],
+					cityNo:['0401','0402','0403','0404','0405','0406']
+				},
+				
+				{	province:'天津',
+					No:'05',
+					cityareaname:['和平','河北','河西','河东','南开','红桥','塘沽','汉沽','大港','东丽','西青','津南','北辰','武清','滨海'],
+					cityNo:['0501','0502','0503','0504','0505','0506','0507','0508','0509','0510','0511','0512','0513','0514','0515']
+				},
+				
+				{	province:'广东',
+					No:'06',
+					cityareaname:['广州','珠海','中山','佛山','东莞','清远','肇庆','阳江','湛江','韶关','惠州','河源','汕尾','汕头','梅州'],
+					cityNo:['0601','0602','0603','0604','0605','0606','0607','0608','0609','0610','0611','0612','0613','0614','0615']
+				},
+				
+
+				{	province:'河北',
+					No:'07',
+					cityareaname:['石家庄','唐山','秦皇岛','邯郸','邢台','张家口','承德','廊坊','沧州','保定','衡水'],
+					cityNo:['0701','0702','0703','0704','0705','0706','0707','0708','0709','0710','0711']
+				},
+				
+
+				{	province:'山西',
+					No:'08',
+					cityareaname:['太原','大同','阳泉','朔州','长治','临汾','晋城'],
+					cityNo:['0801','0802','0803','0804','0805','0806','0807']
+				},
+
+				{	province:'内蒙古',
+					No:'09',
+					cityareaname:['呼和浩特','包头','乌海','临河','东胜','集宁','锡林浩特','通辽','赤峰','海拉尔','乌兰浩特'],
+					cityNo:['0901','0902','0903','0904','0905','0906','0907','0908','0909','0910','0911']
+				},
+				
+				
+				{	province:'辽宁',
+					No:'10',
+					cityareaname:['沈阳','大连','鞍山','锦州','丹东','盘锦','铁岭','抚顺','营口','辽阳','阜新','本溪','朝阳','葫芦岛'],
+					cityNo:['1001','1002','1003','1004','1005','1006','1007','1008','1009','1010','1011','1012','1013','1014']
+				},
+				
+
+				{	province:'吉林',
+					No:'11',
+					cityareaname:['长春','吉林','四平','辽源','通化','白山','松原','白城','延边'],
+					cityNo:['1101','1102','1103','1104','1105','1106','1107','1108','1109']
+				},
+				
+
+				{	province:'黑龙江',
+					No:'12',
+					cityareaname:['哈尔滨','齐齐哈尔','牡丹江','佳木斯','大庆','伊春','黑河','鸡西','鹤岗','双鸭山','七台河','绥化','大兴安岭'],
+					cityNo:['1201','1202','1203','1204','1205','1206','1207','1208','1209','1210','1211','1212','1213']
+				},
+				
+				{	province:'江苏',
+					No:'13',
+					cityareaname:['南京','苏州','无锡','常州','镇江','连云港 ','扬州','徐州 ','南通','盐城','淮阴','泰州','宿迁'],
+					cityNo:['1301','1302','1303','1304','1305','1306','1307','1308','1309','1310','1311','1312','1313']
+				},
+				
+				
+				
+				{	province:'浙江',
+					No:'14',
+					cityareaname:['杭州','湖州','丽水','温州','绍兴','舟山','嘉兴','金华','台州','衢州','宁波'],
+					cityNo:['1401','1402','1403','1404','1405','1406','1407','1408','1409','1410','1411']
+				},
+				
+				{	province:'安徽',
+					No:'15',
+					cityareaname:['合肥  ','芜湖 ','蚌埠 ','滁州 ','安庆 ','六安 ','黄山 ','宣城 ','淮南 ','宿州 ','马鞍山 ','铜陵','淮北 ','阜阳 ','池州 ','巢湖 ','亳州'],
+					cityNo:['1501','1502','1503','1504','1505','1506','1507','1508','1509','1510','1511','1512','1513','1514','1515','1516','1517']
+				},
+				
+
+				{	province:'福建',
+					No:'16',
+					cityareaname:['福州 ','厦门 ','泉州 ','漳州 ','龙岩 ','南平 ','宁德 ','莆田 ','三明'],
+					cityNo:['1601','1602','1603','1604','1605','1606','1607','1608','1609']
+				},
+				
+				{	province:'江西',
+					No:'17',
+					cityareaname:['南昌','景德镇','九江','萍乡','新余','鹰潭','赣州','宜春','吉安','上饶','抚州'],
+					cityNo:['1701','1702','1703','1704','1705','1706','1707','1708','1709','1710','1711']
+				},
+				
+				{	province:'山东',
+					No:'18',
+					cityareaname:['济南','青岛','淄博','德州','烟台','潍坊','济宁','泰安','临沂','菏泽','威海','枣庄','日照','莱芜','聊城','滨州','东营'],
+					cityNo:['1801','1802','1803','1804','1805','1806','1807','1808','1809','1810','1811','1812','1813','1814','1815','1816','1817']
+				},
+				
+				{	province:'河南',
+					No:'19',
+					cityareaname:['郑州','开封','洛阳','平顶山','安阳','鹤壁','新乡','焦作','濮阳','许昌','漯河','三门峡','南阳','商丘','周口','驻马店','信阳','济源'],
+					cityNo:['1901','1902','1903','1904','1905','1906','1907','1908','1909','1910','1911','1912','1913','1914','1915','1916','1917','1918']
+				},
+				
+				
+				{	province:'湖北',
+					No:'20',
+					cityareaname:['武汉','黄石','十堰','荆州','宜昌','襄樊','鄂州','荆门','孝感','黄冈','咸宁','恩施','随州','仙桃','天门','潜江','神农架'],
+					cityNo:['2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017']
+				},
+				
+				
+				{	province:'湖南',
+					No:'21',
+					cityareaname:['长沙','株州','湘潭','衡阳','邵阳','岳阳','常德','郴州','益阳','永州','怀化','娄底','湘西'],
+					cityNo:['2101','2102','2103','2104','2105','2106','2107','2108','2109','2110','2111','2112','2113']
+				},
+				
+				
+				{	province:'广西',
+					No:'22',
+					cityareaname:['南宁','柳州','桂林','梧州','北海','防城港','钦州','贵港','玉林','贺州','百色','河池'],
+					cityNo:['2201','2202','2203','2204','2205','2206','2207','2208','2209','2210','2211','2212']
+				},
+				
+				{	province:'海南',
+					No:'23',
+					cityareaname:['海口 ','三亚','通什','琼海','琼山','文昌','万宁','东方','儋州'],
+					cityNo:['2301','2302','2303','2304','2305','2306','2307','2308','2309']
+				},
+				
+				{	province:'四川',
+					No:'24',
+					cityareaname:['成都','自贡','攀枝花','泸州','德阳','绵阳','广元','遂宁','内江','乐山','南充  ','宜宾','广安','达川','巴中','雅安','眉山  ','阿坝 ','甘孜 ','凉山 '],
+					cityNo:['2401','2402','2403','2404','2405','2406','2407','2408','2409','2410','2411','2412','2413','2414','2415','2416','2417','2418','2419','2420']
+				},
+
+
+				{	province:'贵州',
+					No:'25',
+					cityareaname:['贵阳 ','六盘水','遵义','铜仁','毕节','安顺','黔西南 ','黔东南','黔南'],
+					cityNo:['2501','2502','2503','2504','2505','2506','2507','2508','2509']
+				},
+
+
+				{	province:'云南',
+					No:'26',
+					cityareaname:['昆明','东川','曲靖','玉溪','昭通','思茅','临沧','保山','丽江','文山 ','红河 ','西双版纳 ','楚雄 ','大理 ','德宏 ','怒江','迪庆'],
+					cityNo:['2601','2602','2603','2604','2605','2606','2607','2608','2609','2610','2611','2612','2613','2614','2615','2616','2617']
+				},
+
+
+				{	province:'西藏',
+					No:'27',
+					cityareaname:['拉萨','那曲','昌都','山南','日喀则','阿里','林芝'],
+					cityNo:['2701','2702','2703','2704','2705','2706','2707']
+				},
+
+
+				{	province:'陕西',
+					No:'28',
+					cityareaname:['西安','铜川','宝鸡','咸阳','渭南','延安','汉中','榆林','商洛','安康'],
+					cityNo:['2801','2802','2803','2804','2805','2806','2807','2808','2809','2810']
+				},
+
+
+				{	province:'甘肃',
+					No:'29',
+					cityareaname:['兰州','金昌','白银','天水','嘉峪关','定西','平凉','庆阳','陇南','武威','张掖','酒泉','甘南 ','临夏'],
+					cityNo:['2901','2902','2903','2904','2905','2906','2907','2908','2909','2910','2911','2912','2913','2914']
+				},
+
+				
+				{	province:'青海',
+					No:'30',
+					cityareaname:['西宁','海东',' 海北 ','黄南','海南','果洛','玉树','海西'],
+					cityNo:['3001','3002','3003','3004','3005','3006','3007','3008']
+				},
+
+				{	province:'宁夏',
+					No:'31',
+					cityareaname:['银川','石嘴山','银南','固原'],
+					cityNo:['3101','3102','3103','3104']
+				},
+
+
+				{	province:'新疆',
+					No:'32',
+					cityareaname:['乌鲁木齐','克拉玛依','石河子','吐鲁番','哈密','和田','阿克苏','喀什','克孜勒苏','巴音郭楞','昌吉','博尔塔拉','伊犁'],
+					cityNo:['3201','3202','3203','3204','3205','3206','3207','3208','3209','3210','3211','3212','3213']
+				},
+
+				{	province:'香港',
+					No:'33',
+					cityareaname:['香港'],
+					cityNo:['3301']
+				},
+
+				{	province:'澳门',
+					No:'34',
+					cityareaname:['澳门'],
+					cityNo:['3401']
+				},
+				
+				{	province:'台湾',
+					No:'35',
+					cityareaname:['台湾'],
+					cityNo:['3501']
+				}
+			]
+	}
+	
+
+	//初始化
+	self.init =function(ele){
+		self.ele = ele;
+		$("#J_bt_list").empty();
+		var txt = ele == 'rss' ? '确定(可多选)': '确定';
+		$(".confirm").html(txt);
+		if(ele == 'cw'){
+			$("#J_bt_list").append(self.cw);
+		}else if(ele == 'rss'){
+			$("#J_bt_list").append(self.rss);
+		}else if(ele == 'sheng'){
+			var shengArr = [];
+			for(var i in self.city.list){
+				var province = $.trim(self.city.list[i].province);
+				shengArr.push('<li><span>'+ province +'</span></li>');
+			}
+			$("#J_bt_list").append('<ul class="list">'+ shengArr.join('') +'</ul>');
+		}else{
+			for(var i in self.city.list){
+				var province =  $.trim(self.city.list[i].province);
+				if(self.ele == province){
+					var cityArr = [];
+					for(var j in self.city.list[i].cityareaname){
+						var cityareaname = $.trim(self.city.list[i].cityareaname[j]);
+						cityArr.push('<li><span>'+ cityareaname +'</span></li>');
+					}
+					$("#J_bt_list").append('<ul class="list">'+ cityArr.join('') +'</ul>');
+				}
+			}
+		}
+		
+		$("#J_btfix").addClass('open');
+		$(".mark").show();
+	}
+	
+
+	confirm();
+	cancle();
+	listClickEvent();
+
+}
+	
+
+var selectForm = new SelectForm();
+
+// //订阅邮件
+// $('.rss').click(function(){
+// 	selectForm.init('rss');
+// });
+
+// //称呼
+// $('.cw').click(function(){
+// 	selectForm.init('cw');
+// });
+
+// //选择省
+// $('.sheng').click(function(){
+// 	selectForm.init('sheng');
+// });
+
+// //选择城市
+// $('.city').click(function(){
+// 	var s = $('.sheng').siblings('input').val();
+// 	$(this).addClass(s);
+// 	if(s){
+// 		selectForm.init(s);
+// 	}else{
+// 		alert("请先选择省份");
+// 		return;
+// 	}
+// });
+//订阅邮件
+$('.rss').tap(function(){
+	selectForm.init('rss');
+});
+
+//称呼
+$('.cw').tap(function(){
+	selectForm.init('cw');
+});
+
+//选择省
+$('.sheng').tap(function(){
+	selectForm.init('sheng');
+});
+
+//选择城市
+$('.city').tap(function(){
+	var s = $('.sheng').siblings('input').val();
+	$(this).addClass(s);
+	if(s){
+		selectForm.init(s);
+	}else{
+		alert("请先选择省份");
+		return;
+	}
+});	
+</script>
+
+<!-- 验证 -->
+<script>
+$('.clause #c1').click(function(){
+var myval = $(this).val();
+  if(myval == '1'){
+      $(this).val('0');
+	}else{
+	  $(this).val('1');
+	}
+});
+
+function chkemail(){
+    var emails=$.trim($("#email").val());
+    var reg =/^([a-z0-9]*[-_\.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/;
+    if(emails=="" || !reg.test(emails)){
+        alert('请填写有效的邮箱！');
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function checkstep1(){
+  var chegnwei = $('#chengwei').val(),name = $('#name').val(),agree_tips = $('.clause #c1').val(),birthday = $('#birthday').val(),email = $('#email').val();
+
+  if(chegnwei == '' || name == null){
+     alert('请输入正确的称谓');return false;
+  }
+
+  if(name == '' || name == null){
+     alert('请输入正确的姓名');return false;
+  }
+  var provence = $('#sheng').val();
+  var city = $('#shi').val();
+  if(provence == '' || provence == null){
+  	alert('请选择正确的省份');return false;
+  }
+  if(city == '' || city == null){
+  	alert('请选择正确的城市');return false;
+  }
+
+  chkemail();
+  
+   if(birthday == '' || birthday == null){
+       alert('请填写出生日期');return false;
+   }
+ if(agree_tips != '1'){
+     alert('请同意相关条款'); return false;
+  }
+}
+</script>
+</div><!--wrapper end-->
+</body>
+</html>
