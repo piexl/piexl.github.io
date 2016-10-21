@@ -38,13 +38,17 @@ window.wx = new WXJSB({
 </script>
 </head>
 <body>
+<div class="hide">
+    <audio id="bgMusic" src="./imgs/heart.mp3" loop="loop"></audio>
+    <audio id="switchMusic" src="./imgs/switch.mp3"></audio>
+</div>
 <div id="loading"></div>
 <div id="face">
 	<h3 class="title animated fadeIn"><img src="./imgs/title.png" alt=""></h3>
 	<div class="lineTip animated fadeIn"><img src="./imgs/tipline.gif" alt=""></div>
 	<button class="playbtn animated fadeInUp" id="playbtn">播放视频</button>
 </div>
-<div id="main"></div>
+<div id="main"><video controls="" src="./imgs/movie.mp4" id="video"></video></div>
 <div id="cover"><img src="./imgs/over.jpg" alt=""></div>
 <script src="./js/app.js"></script>
 </body>
