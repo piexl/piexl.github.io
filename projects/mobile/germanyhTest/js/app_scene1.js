@@ -47,8 +47,6 @@ var qw = new Container(),qw1 = new Container(),qw2 = new Container(),qw3 = new C
 
 function gameSetup(){
 	gameJson = resources["./img/game_1.json"].textures;
-	game_otherJson = resources["./img/game_other.json"].textures;
-	policeJson = resources["./img/police.json"].textures;
 	//背景
 	commonBg = new Sprite(
 	    resources["./img/bg.jpg"].texture
@@ -80,6 +78,13 @@ function gameSetup(){
 	game_bg1.ani_move = false;
 	game_bg1.ani_fadeOut = false;
 	stage.addChild(game_bg1);
+	//汽车1
+	game_car1 = new Sprite(gameJson["car1.png"]);
+	game_car1.width = 303*hUnit;
+	game_car1.height = 162*hUnit;
+	game_car1.position.set(88*hUnit,756*hUnit);
+	game_car1.ani_flop = true;
+	stage.addChild(game_car1);
 	gameAimate();
 	startGame();
 }
