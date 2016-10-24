@@ -69,7 +69,7 @@ function gameSetup(){
 	stage.addChild(game_bg2);
 	//游戏背景1
 	game_bg1 = new Sprite(
-	    resources["./img/gamebg1.png"].texture
+	    resources["./img/pc_qr.png"].texture
 	);
 	game_bg1.width = 6315*hUnit;
 	game_bg1.height = 1220*hUnit;
