@@ -7,8 +7,6 @@
 <title>做好准备！硬石风暴即将卷土重来</title>
 <link rel="stylesheet" href="./css/app.css">
 <script src="./lib/flexible.js"></script>
-<script src="./lib/resLoader.js"></script>
-<script src="./lib/zepto.min.js"></script>
 <script type="text/javascript">
 	document.write(unescape('%3Cscript src="http://tripshow.com/weixinapp/tripshow/weixin.js?url='+escape(encodeURIComponent(location.origin+location.pathname+location.search))+'" type="text/javascript" %3E%3C/script%3E'));
 </script>
@@ -36,17 +34,6 @@ window.wx = new WXJSB({
 </script>
 </head>
 <body>
-<div class="hide">
-    <audio id="bgMusic" src="./imgs/heart.mp3" loop="loop"></audio>
-    <audio id="switchMusic" src="./imgs/switch.mp3"></audio>
-</div>
-<div id="loading"></div>
-<div id="face">
-	<h3 class="title animated fadeIn"><img src="./imgs/title.png" alt=""></h3>
-	<div class="lineTip animated fadeIn"><img src="./imgs/tipline.gif" alt=""></div>
-	<button class="playbtn animated fadeInUp" id="playbtn">播放视频</button>
-</div>
-<div id="main"><video controls="" src="./imgs/movie.mp4" id="video"></video></div>
-<script src="./js/app.js"></script>
+<div id="cover" style="display:block"><img src="./imgs/over.jpg" alt=""></div>
 </body>
 </html>
