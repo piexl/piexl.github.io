@@ -80,6 +80,7 @@ function loadingGameSrc(){
 				//渲染游戏
 				randerGame();
 			}
+			enterGame();
 		});
 }
 
@@ -92,31 +93,9 @@ var mySwiper;
 function faceInit(){
 	//加载游戏资源
 	loadingGameSrc();
-	mySwiper = new Swiper ('#slider', {
-		direction: 'vertical',
-		onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
-			swiperAnimateCache(swiper); //隐藏动画元素 
-			swiperAnimate(swiper); //初始化完成开始动画
-			$("#rank-btn").show();
-			$(".swiper-tip").show();
-		},
-		onSlideChangeStart: function(swiper){ 
-			$("#rank-btn").hide();
-			$(".swiper-tip").hide();
-		},
-		onSlideChangeEnd: function(swiper){ 
-			swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
-			$("#rank-btn").show();
-			if(swiper.activeIndex==2){
-				$(".swiper-tip").hide();
-			}else{
-				$(".swiper-tip").show();
-			}
-		} 
-	});
 	$("#loading").hide();
 	//test 进入游戏
-	enterGame();
+	//enterGame();
 	//$("#overlayer-result").show();
 	//$("#overlayer-rank").show();
 	//$("#overlayer-pleased").show();
