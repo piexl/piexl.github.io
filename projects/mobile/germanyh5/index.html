@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="zepo">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>德国自驾H5</title>
+	<link rel="stylesheet" href="./lib/swiper-3.3.1.min.css">
+	<link rel="stylesheet" href="./css/app.css">
+	<script src="./lib/flexible.js"></script>
+	<script src="./lib/pixi.min.js"></script>
+	<script src="./lib/pixi-audio.js"></script>
+	<script src="./lib/zepto.min.js"></script>
+	<script src="./lib/swiper-3.3.1.min.js"></script>
+	<script src="./lib/swiper.animate1.0.2.min.js"></script>
+    <script type="text/javascript">
+    	// document.write(unescape('%3Cscript src="http://tripshow.com/weixinapp/tripshow/weixin.js?url='+escape(encodeURIComponent(location.origin+location.pathname+location.search))+'" type="text/javascript" %3E%3C/script%3E'));
+    </script>
+    <script>
+        // window.wx = new WXJSB({
+        // 	timeLine: {
+        //         title: "太高兴了，我居然拯救了一头濒危犀牛！",
+        //         desc: '#拯救犀牛计划# 你也来试试吧~',
+        //         link: 'http://minisite.tripshow.com/germany/',
+        //         img_url:'http://minisite.tripshow.com/germany/img/common/share.jpg',
+        //         callback: function(d) {
+        //         	// 分享成功回调函数
+        //         }
+        //     },
+        //     appMessage: {
+        //         title: "太高兴了，我居然拯救了一头濒危犀牛！",
+        //         desc: '#拯救犀牛计划# 你也来试试吧~',
+        //         link: 'http://minisite.tripshow.com/germany/',
+        //         img_url:'http://minisite.tripshow.com/germany/img/common/share.jpg',
+        //         callback: function(d) {
+        //         	// 分享成功回调函数
+        //         }
+        //     }   
+        // });
+		function randomString(len) {
+		　　len = len || 32;
+		　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';/****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+		　　var maxPos = $chars.length;
+		　　var pwd = '';
+		　　for (i = 0; i < len; i++) {
+		　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+		　　}
+		　　return pwd;
+		}
+    	var PUBLIC__WECHAT_OPENID = randomString(32);
+		// 浏览器的判断
+	    var browser = {
+	      		versions:function(){
+	           	var u = navigator.userAgent, app = navigator.appVersion;   
+	           	return {//移动终端浏览器版本信息   
+	                trident: u.indexOf('Trident') > -1, //IE内核  
+	                presto: u.indexOf('Presto') > -1, //opera内核  
+	                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核  
+	                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+	                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+	                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端  
+	                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器  
+	                iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器  
+	                iPad: u.indexOf('iPad') > -1, //是否iPad    
+	                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+	            };  
+	        	}(),  
+	         	language:(navigator.browserLanguage || navigator.language).toLowerCase()  
+			}
+		var IsPc= false,
+			IsMobile= false,
+			IsWechat= false;
+		if(browser.versions.mobile || browser.versions.ios || browser.versions.android || browser.versions.iPhone || browser.versions.iPad){
+			console.log('移动端');
+		}else{
+			console.log('pc');
+			IsPc = true;
+		}
+		function isWeiXin(){
+		    var ua = window.navigator.userAgent.toLowerCase();
+		    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+		        return true;
+		    }else{
+		        return false;
+		    }
+		}
+		// if(isWeiXin()){
+		// 	document.write(unescape('%3Cscript src="./js/getWechatAuth.js" type="text/javascript" %3E%3C/script%3E'));
+		// }
+	</script>
+	<script>
+		//获取分享用户的id
+		var getShareUserID = function(){
+			var matchShareUserID = location.href.match(/shareUserID=([^&#]+)/);
+			if(matchShareUserID){
+				return matchShareUserID[1];
+			}else{
+				return '';
+			}
+		};
+    	var shareUserID = getShareUserID();
+		var ifShared = shareUserID ? true : false;
+		if(shareUserID){getGraphicsData(shareUserID);}
+	</script>
+<!-- 统计代码 -->
+</head>
+<body>
+<div id="loading">
+	<div class="loading-inner">
+		<img src="./img/loading_car.png" alt="" class="loading-car">
+		<img src="./img/loading.gif" alt="">
+	</div>
+</div>
+<div id="download" class="animated fadeIn">
+	<div class="download-inner">
+		<div class="download-txt animated fadeInDown"><img src="./img/dwonload_txt.png" alt=""></div>
+		<div class="download-logo animated zoomIn"><img src="./img/dwonload_logo.png" alt=""></div>
+		<div class="download-link animated pulse infinite"><a href="#"><img src="./img/dwonload_btn.png" alt=""></a></div>
+	</div>
+</div>
+<div class="overlayer overlayer-rank animated fadeIn" id="overlayer-rank">
+	<div class="bg"></div>
+	<div class="overlayer-content">
+		<div class="overlayer-inner">
+			<div class="overlayer-bg animated fadeInDown"><img src="./img/rank_bg.png" alt=""></div>
+			<div class="overlayer-content animated fadeIn">
+				<div class="overlayer-title rank-title animated zoomIn"><img src="./img/rank_title.png" alt=""></div>
+				<div class="overlayer-info rank-info animated fadeIn">
+					<div class="overlayer-info-inner rank-info-inner">
+						<span class="rank-text-1"><img src="./img/rank_txt1.png" alt=""></span>
+						<span class="rank-text-num">235</span>
+						<span class="rank-text-2"><img src="./img/rank_txt2.png" alt=""></span>
+					</div>
+				</div>
+			</div>
+			<div class="foot-btn rank-btn animated fadeInUp"><button class="img-btn tryAgin"><img src="./img/rank_btn.png" alt=""></button></div>
+		</div>
+	</div>
+</div>
+<div class="overlayer overlayer-result animated fadeIn" id="overlayer-result">
+	<div class="bg"></div>
+	<div class="overlayer-content">
+		<div class="overlayer-inner">
+			<div class="overlayer-bg animated fadeInDown"><img src="./img/result_bg.png" alt=""></div>
+			<div class="overlayer-content animated fadeIn">
+				<div class="overlayer-title result-title overlayer-title animated zoomIn"><img src="./img/result_05.png" alt=""></div>
+				<p class="result-result animated fadeInUp">
+					<span class="un-font text-lable-1"><img src="./img/result_09.png" alt=""></span>
+					<span class="result-red">265</span>
+					<span class="un-font text-lable-2"><img src="./img/result_11.png" alt=""></span>
+				</p>
+				<div class="overlayer-info result-info animated fadeIn">
+					<ul class="overlayer-info-inner result-info-inner">
+						<li class="row1 animated fadeInUp">
+							<div class="row-inner">
+								<span class="lable lable1"><img src="./img/result_16.png" alt=""></span>
+								<span class="result-red" id="result_score">0</span>
+							</div>
+						</li>
+						<li class="row2 animated fadeInUp">
+							<div class="row-inner">
+								<span class="lable lable2"><img src="./img/result_20.png" alt=""></span>
+								<span class="result-red" id="result_time">0s</span>
+							</div>
+						</li>
+						<li class="row3 animated fadeInUp">
+							<div class="row-inner">
+								<span class="lable lable3"><img src="./img/result_23.png" alt=""></span>
+								<span class="result-red" id="result_notice">60</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="overlayer-form animated fadeInUp">
+					<div class="overlayer-form-inner">
+						<input type="number" placeholder="请留下电话方便邮递奖品" id="userphone">
+						<button class="phonebtn" id="phonebtn"><img src="./img/result_27.png" alt=""></button>
+					</div>
+				</div>
+			</div>
+			<div class="foot-btn rank-btn animated fadeInUp"><button class="img-btn tryAgin"><img src="./img/rank_btn.png" alt=""></button></div>
+		</div>
+	</div>
+</div>
+<div class="overlayer overlayer-pleased animated fadeIn" id="overlayer-pleased">
+	<div class="bg"></div>
+	<div class="overlayer-content">
+		<div class="overlayer-inner">
+			<div class="overlayer-bg animated fadeInDown"><img src="./img/over_bg_03.png" alt=""></div>
+			<div class="pleased-content animated fadeIn">
+				<div class="pleased-title animated zoomIn"><img src="./img/over_title.png" alt=""></div>
+				<div class="pleased-info animated fadeInUp"><img src="./img/over_txt.png" alt=""></div>
+			</div>
+			<div class="pleased-hand animated fadeIn"><img src="./img/shou.png" alt="" class="animated pulse infinite"></div>
+		</div>
+	</div>
+</div>
+<div id="face-page">
+	<div class="slide-inner">
+    	<div class="slide-bg">
+    		<div class="slide-bg-bottom animated fadeIn"><img src="./img/section1_bg.png" alt=""></div>
+    		<div class="slide-cloud-cont animated fadeIn">
+    			<img src="./img/section1_cloud_1.png" alt="" class="slide-cloud-1 animated pulse infinite">
+    			<img src="./img/section1_cloud_2.png" alt="" class="slide-cloud-2">
+    			<img src="./img/section1_cloud_3.png" alt="" class="slide-cloud-3">
+    		</div>
+    	</div>
+		<div class="slide-content">
+    		<div class="slide-logo animated"><img src="./img/section1_logo.png" alt=""></div>
+    		<div class="slide-title animated flipInX"><img src="./img/section1_title.png" alt=""></div>
+    		<div class="slide-car animated fadeInLeft"><img src="./img/section1_car.png" alt=""></div>
+		</div>
+	</div>
+</div>
+<div class="swiper-container" id="slider">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide1">
+        	<div class="slide-inner">
+        		<div class="slide-btn ani" id="rank-btn" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0"><img src="./img/section1_btn.png" alt=""></div>
+        	</div>
+        </div>
+        <div class="swiper-slide swiper-slide2">
+        	<div class="slide-inner ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0"><img src="./img/guize.png" alt=""></div>
+        </div>
+        <div class="swiper-slide swiper-slide3">
+        	<div class="slide-inner ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0">
+        		<div class="slide-bg"><img src="./img/side3_bg.png" alt=""></div>
+    			<ul class="slide-content">
+    				<li class="slide-title ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s"><img src="./img/side3_03.png" alt=""></li>
+    				<li class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.4s"><img src="./img/side3_07.png" alt=""></li>
+    				<li class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.6s"><img src="./img/side3_10.png" alt=""></li>
+    				<li class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"><img src="./img/side3_11.png" alt=""></li>
+    				<li class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1s"><img src="./img/side3_12.png" alt=""></li>
+    				<li class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"><img src="./img/side3_14.png" alt=""></li>
+    				<li class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.4s"><button id="enter-btn" class="animated infinite pulse"><img src="./img/enterbtn.png" alt=""></button></li>
+    			</ul>
+        	</div>
+        </div>
+    </div>
+    <div class="swiper-tip animated fadeIn"><img src="./img/jiantou.png" alt=""></div>
+</div>
+<div id="un-weixin"></div>
+<div id="un-mobile">
+	<div class="logo"><img src="./img/pc_logo.png" alt=""></div>
+	<div class="title"><img src="./img/pc_title.png" alt=""></div>
+	<div class="qr"><img src="./img/pc_qr.png" alt=""></div>
+</div>
+<div id="main"></div>
+<script src="./js/app_main.js"></script>
+<script src="./js/app_scene1.js"></script>
+<script src="./js/app_animate.js"></script>
+</body>
+</html>
