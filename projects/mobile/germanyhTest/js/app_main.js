@@ -45,6 +45,7 @@ function loadingCommonSrc(){
 	  	"./img/loading_car.png",
 	  	"./img/loading.gif",
 	  	"./img/bg.jpg",
+	  	"./img/BG2.png",
 	  	"./img/pc_qr.png",
 		"./img/gamebg1.png",
 		"./img/gamebg2.png",
