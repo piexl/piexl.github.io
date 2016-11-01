@@ -163,9 +163,38 @@ body{
 }
 // 页面主体
 #main{
+	.animateImg{
+		width:100%;
+		overflow:hidden;
+		font-size:0;
+		line-height:0;
+		img{
+			.transition(all,0.5s,ease,0s);
+			&:hover{
+				.transform_scale3d(1.1,1.1,1.1);
+			}
+		}
+	}
 	.part{
 		padding-top:138px;
 		color:#fff;
+		&.part1{
+			.pic-list{
+				width:927px;
+				margin:0 auto;
+				li{
+					float:left;
+					display:block;
+					width:299px;
+					margin:0 5px;
+					padding:0;
+					overflow:hidden;
+					img{
+						max-width:none;
+					}
+				}
+			}
+		}
 		&.part3{
 			.pic-list{
 				width:100%;
@@ -245,14 +274,40 @@ body{
 	padding-right:20px;
 }
 }
-
 /* 中等屏幕（桌面显示器 小于992px） */
-@media screen and (max-width:992px){
-
+@media screen and (max-width:927px){
 // 页面主体
 #main{
 	.part{
-		&.part1,&.part5{
+		&.part1{
+			.pic-list{
+				width:96%;
+				padding:0 2%;
+				li{
+					float:left;
+					display:block;
+					width:32%;
+					padding:0 4/6%;
+					margin:0;
+					overflow:hidden;
+					img{
+						max-width:100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+}
+
+
+/* 中等屏幕（桌面显示器 小于992px） */
+@media screen and (max-width:992px){
+// 页面主体
+#main{
+	.part{
+		&.part5{
 			.pic-list{
 				li{
 					display:block;
@@ -315,6 +370,7 @@ body{
 				li{
 					display:block;
 					width:100%;
+					margin-bottom:1em;
 				}
 			}
 		}

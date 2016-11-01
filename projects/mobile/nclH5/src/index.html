@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>nclh5</title>
+<link rel="stylesheet" href="./lib/swiper-3.4.0.min.css">
+<link rel="stylesheet" href="./css/app.css">
+<script src="./lib/flexible.js"></script>
+<script src="./lib/resLoader.js"></script>
+<script src="./lib/jquery.min.js"></script>
+<script src="./lib/qrcode.min.js"></script>
+<script src="./lib/swiper-3.4.0.min.js"></script>
+<script src="./lib/swiper.animate1.0.2.min.js"></script>
+</head>
+<body>
+<div id="loading">
+	<div class="loading-inner">
+		<img src="./imgs/loading_car.png" alt="" class="loading-car">
+		<img src="./imgs/loading.gif" alt="">
+	</div>
+</div>
+<div id="main">
+	<!-- 封面开始 -->
+	<div id="face-page">首屏</div>
+	<!-- 封面结束 -->
+	<!-- 全屏滑动开始 -->
+	<div class="swiper-container" id="slider">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide slide0"></div>
+	        <div class="swiper-slide slide1">
+	        	<div class="sider-content">
+	        		<h3 class="title">探索美味</h3>
+	        		<div class="line"><img src="./imgs/line_white.png" alt=""></div>
+	        		<p>诺唯真喜悦号为您将提供<br/>独一无二的海上饕餮盛宴<br/>您将品尝到各种新鲜的东西方美食组合</p>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide slide2">
+	        	<div class="sider-content">
+	        		<h3 class="title">午夜奇景</h3>
+	        		<div class="line"><img src="./imgs/line_white.png" alt=""></div>
+	        		<p>当夜幕降临，华灯初上<br/>诺唯真喜悦号为您提供<br/>来自全球的多样化娱乐项目任您挑选</p>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide slide3">
+	        	<div class="sider-content">
+	        		<h3 class="title">尊贵之上的<br/>住宿体验</h3>
+	        		<div class="line"><img src="./imgs/line_white.png" alt=""></div>
+	        		<p>精致华贵的奢华装饰<br/>开阔明朗的视野<br/>个性周到的专项服务</p>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide slide4">
+	        	<div class="sider-content">
+	        		<h3 class="title">时尚为您定制</h3>
+	        		<div class="line"><img src="./imgs/line_white.png" alt=""></div>
+	        		<p>用流光溢彩的奢侈品来宠爱自己<br/>诺唯真喜悦号致力于打造高端购物环境<br/>全球知名奢侈品这里应有尽有</p>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide slide5">
+	        	<div class="sider-content">
+	        		<div class="sider-header">
+	        			<h3 class="title"><img src="./imgs/p5_title.png" alt=""></h3>
+	        			<p>2017 年夏季正式首航</p>
+	        		</div>
+	        		<div class="slider-video" data-videourl='http://video.smvp.cn/pub-487882038335574527/ent-849682202361052777/ren-849682304934824482/1/849682304934824482.mp4'><img src="./imgs/p5_videoface.jpg" alt=""></div>
+	        		<div class="slider-footer">
+	        			<p>定制般的奢华体验，令人惊叹的精致细节<br/>如今都汇聚到了诺唯真喜悦号上，她蓄势待发<br/>将于2017年为中国游客提供前所未有的美妙旅程</p>
+	        			<p>更多详情登陆<a href="http://goncl.cn">goncl.cn</a>查看</p>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide slide6">
+	        	<div class="slide-content">
+	        		<div class="slide-head text-center">
+		        		<h3 class="title">参与双屏互动<br/>即可抽奖</h3>
+		        		<p>每邀请一位新朋友参与，多一次抽奖机会</p>
+		        		<p class="active-time">2016.11.7-12.6</p>
+	        		</div>
+					<ul class="slide-body afterclear">
+						<li class="fl fullItem">
+							<img src="./imgs/p6_img1.jpg" alt="">
+							<p class="text">喜悦号游轮双人客房<span>(1)</span></p>
+						</li>
+						<li class="fl">
+							<img src="./imgs/p6_img2.jpg" alt="">
+							<p class="text">假期旅行包<span>(10)</span></p>
+						</li>
+						<li class="fl">
+							<img src="./imgs/p6_img3.jpg" alt="">
+							<p class="text">保温杯<span>(10)</span></p>
+						</li>
+						<li class="fl">
+							<img src="./imgs/p6_img4.jpg" alt="">
+							<p class="text">美食体验券<span>(3)</span></p>
+						</li>
+					</ul>
+	        	</div>
+	        </div>
+	        <div class="swiper-slide slide7">
+	        	<div class="slide-content">
+	        		<div class="slide-head">
+	        			<div class="logo"><img src="./imgs/p7_logo.png" alt=""></div>
+	        			<div class="title"><img src="./imgs/p7_title.png" alt=""></div>
+	        		</div>
+	        		<div class="slide-body">
+	        			<div id="qrcode"></div>
+	        			<p class="text-center">邀请好友扫二维码<br/>共同开启诺唯真喜悦号之旅</p>
+	        		</div>
+	        		<div class="slide-footer"><img src="./imgs/p7_footer.png" alt=""></div>
+	        	</div>
+	        </div>
+	    </div>
+    	<!-- 如果需要导航按钮 -->
+    	<div class="swiper-next"></div>
+	</div>
+	<!-- 全屏滑动结束 -->
+	<!-- 双屏互动开始 -->
+	<div id="interact-page">
+		双屏互动
+	</div>
+	<!-- 双屏互动结束 -->
+
+	<!-- 遮盖层开始 -->
+	<div class="over-layer animated fadeIn" id="over-layer">
+		<!-- 抽奖中开始 -->
+		<div class="over-layer-inner over-layer-drawing">
+			<div class="over-layer-content">
+				<div class="drawing-tip"><img src="./imgs/drawing_img1.png" alt=""></div>
+				<div class="drawing-text"><img src="./imgs/drawing_text.png" alt=""></div>
+			</div>
+		</div>
+		<!-- 抽奖中结束 -->
+		<!-- 中奖开始 -->
+		<div class="over-layer-inner over-layer-win">
+			<div class="over-layer-content text-center">
+				<div class="over-layer-header">
+					<h3>恭喜您</h3>
+					<p class="title-tip"><img src="./imgs/win_img1.png" alt=""></p>
+				</div>
+				<div class="over-layer-prize">
+					<h3>获得一张</h3>
+					<p class="prizeName">“喜悦号双人免费客房体验券”</p>
+					<p class="prizePic"><img src="./imgs/p6_img1.jpg" alt=""></p>
+				</div>
+				<div class="line"><img src="./imgs/win_img2.png" alt=""></div>
+				<div class="over-layer-footer">
+					<h3>填写联系方式，领取奖品</h3>
+					<p><input type="text" placeholder="姓名" id="userName"></p>
+					<p><input type="text" placeholder="E-mail" id="userEamil"></p>
+					<p><input type="number" placeholder="手机号" id="userPhone"></p>
+					<p><button class="imgbtn" id="submitbtn"><img src="./imgs/win_img3.jpg" alt=""></button></p>
+				</div>
+			</div>
+		</div>
+		<!-- 中奖结束 -->
+		<!-- 没中奖开始 -->
+		<div class="over-layer-inner over-layer-noPrize">
+			<div class="over-layer-content text-center">
+				<div class="over-layer-header">
+					<p class="tipimg"><img src="./imgs/noPrize_tipimg.png" alt=""></p>
+					<h3>很遗憾</h3>
+					<p>你离奖品只有一步之遥</p>
+				</div>
+				<div class="line"><img src="./imgs/win_img2.png" alt=""></div>
+				<div class="over-layer-qrcode">
+					<div class="over-layer-qrcode"><img src="./imgs/qrcode_ncl.jpg" alt=""></div>
+					<p>每邀请一位新朋友参与<br/>多一次抽奖机会</p>
+				</div>
+				<button class="imgbtn" id='tryaginbtn'><img src="./imgs/tryaginbtn.jpg" alt=""></button>
+			</div>
+		</div>
+		<!-- 没中奖结束 -->
+		<!-- 信息提交成功开始 -->
+		<div class="over-layer-inner over-layer-success">
+			<div class="over-layer-content text-center">
+				<div class="over-layer-header">
+					<p class="tipimg"><img src="./imgs/submit_success.png" alt=""></p>
+					<h3>信息提交成功</h3>
+				</div>
+				<div class="line"><img src="./imgs/win_img2.png" alt=""></div>
+				<div class="over-layer-qrcode">
+					<div class="over-layer-qrcode"><img src="./imgs/qrcode_ncl.jpg" alt=""></div>
+					<p>扫描二维码关注并<br/>获取活动最新通知</p>
+				</div>
+			</div>
+		</div>
+		<!-- 信息提交成功结束 -->
+	</div>
+	<!-- 遮盖层结束 -->
+	<div class="over-layer-video animated fadeIn">
+		<div class="over-layer-inner">
+			<button class="closebtn"><img src="./imgs/closebtn.png" alt=""></button>
+			<div class="over-layer-content">
+				<video controls="controls" loop="loop" autoplay="autoplay" src=""></video>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="./js/app.js"></script>
+</body>
+</html>
