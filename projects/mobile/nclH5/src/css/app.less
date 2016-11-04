@@ -60,9 +60,16 @@ button{
 	position:fixed;
 	top:0;
 	left:0;
-	z-index:100;
+	z-index:10000;
 	color:#333;
 	background: url(./../imgs/cloud_bg.jpg) 0 0 no-repeat;
+	&.over-layer-show{
+		display:block;
+		.over-layer-inner{
+			.center_v;
+		}
+		
+	}
 	.over-layer-inner{
 		width:100%;
 		height:100%;
@@ -74,7 +81,9 @@ button{
 		margin:1em auto;
 	}
 	.over-layer-drawing{
-		display:none;
+		display:table-cell;
+		vertical-align:middle;
+		//display:none;
 		.over-layer-content{
 			width:370/@base;
 			margin:0 auto;
@@ -93,24 +102,37 @@ button{
 				color:#619fc5;
 				marign:0.5em 0;
 				.font(normal,16px,1.5,'Microsoft YaHei');
+				.animation_delay(0s);
 			}
 			.title-tip{
 				width:211/@base;
 				margin:0 auto;
+				.animation_delay(0.2s);
 			}
 			.over-layer-prize{
 				margin-top:1em;
-				h3{color:#000;}
+				h3{color:#000; .animation_delay(0.4s);}
 				.prizeName{
 					color:#eb9200;
 					margin-bottom:0.5em;
+					.animation_delay(0.6s);
+				}
+				.prizePic{
+					.animation_delay(0.8s);
 				}
 			}
+			.line{
+				.animation_delay(1s);
+			}
 			.over-layer-footer{
-				h3{margin-bottom:0.5em;}
+				h3{margin-bottom:0.5em; .animation_delay(1.2s);}
 				p{
 					margin-bottom:0.5em;
 				}
+				.input1{.animation_delay(1.4s);}
+				.input2{.animation_delay(1.6s);}
+				.input3{.animation_delay(1.8s);}
+				.input4{.animation_delay(2.0s);}
 			}
 			input{
 				width:94%;
@@ -127,6 +149,8 @@ button{
 	}
 	.over-layer-noPrize,.over-layer-success{
 		display:none;
+		width:100%;
+		height:100%;
 		.over-layer-content{
 			width:100%;
 			.font(normal,14px,1.5,'Microsoft YaHei');
@@ -135,9 +159,17 @@ button{
 		.tipimg{
 			width:116/@base;
 			margin:0 auto;
+			.animation_delay(0s);
 		}
 		h3{
 			.font(bold,24px,1.5,'Microsoft YaHei');
+			.animation_delay(0.2s);
+		}
+		.tiptext{
+			.animation_delay(0.4s);
+		}
+		.line{
+			.animation_delay(0.6s);
 		}
 		.over-layer-qrcode{
 			margin:3em 0;
@@ -149,12 +181,17 @@ button{
 				margin-bottom:20/@base;
 				background-color:#fff;
 				border:1px solid #cae1ef;
+				.animation_delay(0.8s);
+			}
+			.text{
+				.animation_delay(1.0s);
 			}
 		}
 		button{
 			width:280/@base;
 			margin:0 auto;
 			margin-top:2em;
+			.animation_delay(1.2s);
 		}
 	}
 	// .over-layer-noPrize{
@@ -165,6 +202,7 @@ button{
 		background-size:cover;
 		h3{
 			.font(bold,18px,1.5,'Microsoft YaHei');
+
 		}
 		.over-layer-content{
 			padding-bottom:40%;
@@ -213,14 +251,397 @@ button{
 	}
 }
 
+//封面文字1动画
+.facetext0fadeInUp{
+	0%{
+		margin-top:-18/@base;
+		opacity:0;
+	}
+	10%{
+		margin-top:-18/@base;
+		opacity:1;
+	}
+	100%{
+		margin-top:-500/@base;
+		opacity:0;
+	}
+}
+@keyframes facetext0fadeInUp{ .facetext0fadeInUp}
+@-moz-keyframes facetext0fadeInUp{ .facetext0fadeInUp}
+@-webkit-keyframes facetext0fadeInUp{ .facetext0fadeInUp}
+@-o-keyframes facetext0fadeInUp{ .facetext0fadeInUp}
+
+//封面文字1动画
+.facetext1fadeInUp{
+	0%{
+		margin-top:-18/@base;
+		opacity:0;
+	}
+	10%{
+		margin-top:-18/@base;
+		opacity:1;
+	}
+	100%{
+		margin-top:-370/@base;
+		opacity:1;
+	}
+}
+@keyframes facetext1fadeInUp{ .facetext1fadeInUp}
+@-moz-keyframes facetext1fadeInUp{ .facetext1fadeInUp}
+@-webkit-keyframes facetext1fadeInUp{ .facetext1fadeInUp}
+@-o-keyframes facetext1fadeInUp{ .facetext1fadeInUp}
+//封面文字1动画
+.facetext2fadeInUp{
+	0%{
+		margin-top:-18/@base;
+		opacity:0;
+	}
+	10%{
+		margin-top:-18/@base;
+		opacity:1;
+	}
+	100%{
+		margin-top:-290/@base;
+		opacity:1;
+	}
+}
+@keyframes facetext2fadeInUp{ .facetext2fadeInUp}
+@-moz-keyframes facetext2fadeInUp{ .facetext2fadeInUp}
+@-webkit-keyframes facetext2fadeInUp{ .facetext2fadeInUp}
+@-o-keyframes facetext2fadeInUp{ .facetext2fadeInUp}
+
+//封面文字1动画
+.faceHide{
+	0%{
+		z-index:100;
+		opacity:1;
+
+	}
+	99%{
+		z-index:100;
+		opacity:0;
+		display:block;
+	}
+	100%{
+		z-index:-1;
+		opacity:0;
+		display:none;
+	}
+}
+@keyframes faceHide{ .faceHide}
+@-moz-keyframes faceHide{ .faceHide}
+@-webkit-keyframes faceHide{ .faceHide}
+@-o-keyframes faceHide{ .faceHide}
+
+//云移动
+.cloudMove{
+	0%{
+		left:0;
+	}
+	100%{
+		left:-750/@base;
+	}
+}
+@keyframes cloudMove{ .cloudMove}
+@-moz-keyframes cloudMove{ .cloudMove}
+@-webkit-keyframes cloudMove{ .cloudMove}
+@-o-keyframes cloudMove{ .cloudMove}
+
+//云背景
+.cloudbg{
+	width:100%;
+	height:100%;
+	// background:#569ed1 url(./../imgs/cloud_bg.jpg) 0 0 no-repeat;
+	// background-size:cover;
+	background-color:#569ed1;
+	position:relative;
+	overflow:hidden;
+	.cloud{
+		position:absolute;
+		top:0;
+		left:0;
+		width:1500/@base;
+		height:100%;
+		&.cloud1{
+			background:url(./../imgs/cloud1.png) 0 0 no-repeat;
+			z-index:1;
+			.animation(cloudMove,16s,linear,infinite,normal,forwards);
+		}
+		&.cloud2{
+			background:url(./../imgs/cloud2.png) 0 0 no-repeat;
+			z-index:1;
+			.animation(cloudMove,18s,linear,infinite,normal,forwards);
+		}
+		&.cloud3{
+			background:url(./../imgs/cloud3.png) 0 0 no-repeat;
+			z-index:1;
+			//.animation(cloudMove,12s,linear,infinite,normal,forwards);
+		}
+		&.cloud4{
+			background:url(./../imgs/cloud4.png) 0 0 no-repeat;
+			z-index:1;
+			.animation(cloudMove,14s,linear,infinite,normal,forwards);
+		}
+	}
+}
+
+//云刷
+.cloudBrush{
+	0%{
+		background-position:0 0;
+	}
+	100%{
+		background-position:-750*7/@base 0;
+	}
+}
+@keyframes cloudBrush{ .cloudBrush}
+@-moz-keyframes cloudBrush{ .cloudBrush}
+@-webkit-keyframes cloudBrush{ .cloudBrush}
+@-o-keyframes cloudBrush{ .cloudBrush}
+
+.cloudbrush{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+	width:100%;
+	height:100%;
+	background:url(./../imgs/cloudbrush_a.png) 0 0 no-repeat;
+	background-size:750*7/@base 100%;
+	&.cloudbrush_b{
+		background:url(./../imgs/cloudbrush_b.png) 0 0 no-repeat;
+		background-size:750*7/@base 100%;
+	}
+	&.startAnimate{
+		.animation(cloudBrush,3s,steps(7),1,normal,forwards);
+	}
+}
+
+
 // 首屏
 #face-page{
 	display:none;
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:10;
+	opacity:1;
+	.face-page-inner{
+		position:relative;
+		width:100%;
+		height:100%;
+	}
+	.face-page-content{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:9;
+		.center_v;
+	}
+	.face-page-a{
+		//display:none;
+		.text0{
+			width:290/@base;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-left:-145/@base;
+			margin-top:-18/@base;
+			//margin-top:-500/@base;
+			opacity:0;
+		}
+		.text1{
+			width:290/@base;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-left:-145/@base;
+			margin-top:-18/@base;
+			//margin-top:-370/@base;
+			opacity:0;
+		}
+		.text2{
+			width:626/@base;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-left:-313/@base;
+			margin-top:-18/@base;
+			//margin-top:-290/@base;
+			opacity:0;
+		}
+		.face-fenhuang{
+			width:440/@base;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-left:-220/@base;
+			margin-top:-71/@base;
+		}
+	}
+	.face-page-b{
+		//display:none;
+		.animation_delay(8s);
+		.page-head{
+			width:580/@base;
+			margin-bottom:260/@base;
+			.logo{
+				width:290/@base;
+				.animation_delay(9s);
+			}
+			.title{
+				.animation_delay(10s);
+			}
+		}
+		.page-footer{
+			text-align:center;
+			color:#0083bc;
+			.font(normal,18px,1.5,'Microsoft YaHei');
+		}
+	}
+	.cloudbg{
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:2;
+	}
+	//开始动画
+	&.startAnimate{
+		.text0{
+			.animation(facetext0fadeInUp,3s,linear,1,normal,forwards);
+			.animation_delay(0.2s);
+		}
+		.text1{
+			.animation(facetext1fadeInUp,3s,linear,1,normal,forwards);
+			.animation_delay(1.6s);
+		}
+		.text2{
+			.animation(facetext2fadeInUp,3s,linear,1,normal,forwards);
+			.animation_delay(3s);
+		}
+		.face-fenhuang{
+			.animation_delay(6s);
+		}
+		.face-page-a{
+			.animation_delay(7s);
+		}
+		.face-page-b{
+			.animation_delay(7s);
+		}
+		.page-head{
+			.logo{.animation_delay(7.5s);}
+			.title{.animation_delay(8s);}
+		}
+		.page-footer{
+			.animation_delay(8.5s);
+		}
+		.face-page-content{
+			//display:none;
+			.animation_delay(10s);
+		}
+		.cloudbg{
+			//display:none;
+			.animation_delay(10.5s);
+		}
+		.cloudbrush{
+			.animation(cloudBrush,3s,steps(7),1,normal,forwards);
+			.animation_delay(10.5s);
+		}
+	}
 }
-// 双屏互动
-#ninteract-page{
-	display:none;
+//首屏背景
+.slidebgzoomIn{
+	0%{
+		.transform_scale3d(1,1,1);
+	}
+	100%{
+		.transform_scale3d(1.1,1.1,1.1);
+	}
 }
+@keyframes slidebgzoomIn{ .slidebgzoomIn}
+@-moz-keyframes slidebgzoomIn{ .slidebgzoomIn}
+@-webkit-keyframes slidebgzoomIn{ .slidebgzoomIn}
+@-o-keyframes slidebgzoomIn{ .slidebgzoomIn}
+
+//翻页指示跳动
+.slidenextipJump{
+	0%{
+		margin-top:-2/@base;
+	}
+	100%{
+		margin-top:-12/@base;
+	}
+}
+@keyframes slidenextipJump{ .slidenextipJump}
+@-moz-keyframes slidenextipJump{ .slidenextipJump}
+@-webkit-keyframes slidenextipJump{ .slidenextipJump}
+@-o-keyframes slidenextipJump{ .slidenextipJump}
+//翻页背景旋转
+.slidenexRotate{
+	0%{
+		.transform_rotate(-30deg);
+	}
+	50%{
+		.transform_rotate(0deg);
+	}
+	100%{
+		.transform_rotate(30deg);
+	}
+}
+@keyframes slidenexRotate{ .slidenexRotate}
+@-moz-keyframes slidenexRotate{ .slidenexRotate}
+@-webkit-keyframes slidenexRotate{ .slidenexRotate}
+@-o-keyframes slidenexRotate{ .slidenexRotate}
+
+
+//p0云移动
+.slide0CloudMove{
+	0%{
+		background-position:-252/@base 0;
+	}
+	100%{
+		background-position:0 0;
+	}
+}
+@keyframes slide0CloudMove{ .slide0CloudMove}
+@-moz-keyframes slide0CloudMove{ .slide0CloudMove}
+@-webkit-keyframes slide0CloudMove{ .slide0CloudMove}
+@-o-keyframes slide0CloudMove{ .slide0CloudMove}
+
+//p0海移动
+.slide0SeaMove{
+	0%{
+		background-position:0 0;
+		.transform_scale3d(1,1,1);
+	}
+	100%{
+		background-position:-500/@base 0;
+		.transform_scale3d(1.1,1.1,1.1);
+	}
+}
+@keyframes slide0SeaMove{ .slide0SeaMove}
+@-moz-keyframes slide0SeaMove{ .slide0SeaMove}
+@-webkit-keyframes slide0SeaMove{ .slide0SeaMove}
+@-o-keyframes slide0SeaMove{ .slide0SeaMove}
+
+//p0船移动
+.slide0Ship{
+	0%{
+		.transform_scale3d(1,1,1);
+	}
+	100%{
+		.transform_scale3d(1.8,1.8,1.8);
+	}
+}
+@keyframes slide0Ship{ .slide0Ship}
+@-moz-keyframes slide0Ship{ .slide0Ship}
+@-webkit-keyframes slide0Ship{ .slide0Ship}
+@-o-keyframes slide0Ship{ .slide0Ship}
+
 // 全屏翻页
 #slider{
 	width:100%;
@@ -233,8 +654,30 @@ button{
 		height:110/@base;
 		margin-left:-57/@base;
 		z-index:100;
-		background:url(./../imgs/next_btn.png) no-repeat 0 0;
-		background-size:100% 100%;
+		.swiper-next-inner{
+			width:100%;
+			height:100%;
+			position:relative;
+		}
+		.swiper-next-bg{
+			width:100%;
+			height:100%;
+			font-size:0;
+			line-height:0;
+			.animation(slidenexRotate,4s,linear,infinite,alternate,both);
+		}
+		.swiper-next-tip{
+			display:block;
+			position:absolute;
+			top:50%;
+			left:50%;
+			width:13/@base;
+			height:11/@base;
+			font-size:0;
+			margin-top:-5.5/@base;
+			margin-left:-6.5/@base;
+			.animation(slidenextipJump,1.6s,linear,infinite,normal,forwards);
+		}
 	}
 	.swiper-slide{
 		width:100%;
@@ -245,10 +688,56 @@ button{
 		margin:15/@base auto;
 	}
 	.slide0{
+		overflow:hidden;
 		background: url(./../imgs/p0_bg.jpg) center center no-repeat;
 		background-size:cover;
+		.swiper-slide-inner{
+			width:100%;
+			height:100%;
+		}
+		.slide0-cloud{
+			width:100%;
+			height:100%;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:1;
+			background:url(./../imgs/p0_cloud.png) 0 0 no-repeat;
+			background-size:1388/@base 100%;
+			background-position:-252/@base 0;
+		}
+		.slide0_sea{
+			width:100%;
+			height:328/@base;
+			position:absolute;
+			bottom:0;
+			left:0;
+			z-index:1;
+			background:url(./../imgs/p0_sea.png) 0 0 no-repeat;
+			background-size:1230/@base 328/@base;
+		}
+		.slide0_ship{
+			width:60%;
+			margin:0 20%;
+			position:absolute;
+			left:0;
+			bottom:260/@base;
+			z-index:3;
+			.transform-origin(center,87%);
+		}
+		&.animated{
+			.slide0-cloud{
+				.animation(slide0CloudMove,4s,linear,1,normal,forwards);
+			}
+			.slide0_sea{
+				.animation(slide0SeaMove,4s,ease,1,normal,forwards);
+			}
+			.slide0_ship{
+				.animation(slide0Ship,4s,linear,1,normal,forwards);
+			}
+		}
 	}
-	.slide1,.slide2,.slide3,.slide4{
+	.slide1_0,.slide1,.slide2,.slide3,.slide4{
 		background: url(./../imgs/p1_bg.jpg) center center no-repeat;
 		background-size:cover;
 		text-align:center;
@@ -260,6 +749,10 @@ button{
 		h3{
 			.font(normal,24px,1.5,'Microsoft YaHei');
 		}
+	}
+	.slide1_0{
+		background: url(./../imgs/p1_0bg.jpg) center center no-repeat;
+		background-size:cover;
 	}
 	.slide2{
 		background: url(./../imgs/p2_bg.jpg) center center no-repeat;
@@ -283,7 +776,9 @@ button{
 			width:351/@base;
 			margin:0 auto;
 			margin-bottom:50/@base;
-			.font(bold,14px,1.5,'Microsoft YaHei');
+		}
+		h3{
+			.font(bold,16px,1.5,'Microsoft YaHei');
 		}
 		.slider-footer{
 			margin-top:50/@base;
@@ -299,10 +794,18 @@ button{
 	.slide6{
 		background: url(./../imgs/cloud_bg.jpg) center center no-repeat;
 		background-size:cover;
-		.center_v;
 		.slide-content{
-			width:590/@base;
-			margin:0 80/@base;
+			width:100%;
+			height:100%;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:10;
+			.center_v;
+			.slide-content-inner{
+				width:590/@base;
+				margin:0 80/@base;
+			}
 		}
 		.slide-head{
 			margin-bottom:2em;
@@ -316,21 +819,31 @@ button{
 		}
 		.slide-body{
 			li{
-				width:100/3%;
+				width:100/2%;
 				position:relative;
 				font-size:0;
 				line-height:0;
 				box-sizing: border-box;
-				border:1px solid transparent;
+				border:1px solid #e1edf7;
 				.text{
+					width:100%;
+					text-align:center;
 					.font(normal,12px,1.5,'Microsoft YaHei');
 					position:absolute;
 					bottom:0.5em;
-					right:0.5em;
-					color:#fff;
+					left:0;
+					color:#619fc5;
 				}
 				&.fullItem{
 					width:100%;
+					.text{
+						bottom:1.5em;
+						small{
+							background:#619fc5;
+							color:#fff;
+							padding:0.3em 1em;
+						}
+					}
 				}
 			}
 		}
@@ -338,7 +851,19 @@ button{
 	.slide7{
 		background: url(./../imgs/cloud_bg.jpg) center center no-repeat;
 		background-size:cover;
-		.center_v;
+		.slide-content{
+			width:100%;
+			height:100%;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:10;
+			.center_v;
+			// .slide-content-inner{
+			// 	width:590/@base;
+			// 	margin:0 80/@base;
+			// }
+		}
 		.slide-head{
 			width:352/@base;
 			margin:0 199/@base;
@@ -366,7 +891,102 @@ button{
 		}
 	}
 }
+//页面头部logo和主题
+.page-head{
+	width:352/@base;
+	margin:0 auto;
+	margin-top:118/@base;
+	.logo{
+		width:216/@base;
+		margin:0 auto;
+		margin-bottom:20/@base;
+	}
+}
+.seabg{
+	width:100%;
+	height:100%;
+	background:url(./../imgs/seabg.jpg) 0 0 no-repeat;
+	background-size:100% 100%;
+}
 
+// 双屏互动
+#interact-page{
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1000;
+	.seabg{
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:1;
+		//opacity:1;
+	}
+	.cloudbg{
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:10;
+		//opacity:0;
+	}
+	.cloudbrush{
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:9;
+	}
+	.interact-page-inner{
+		width:100%;
+		height:100%;
+		position:relative;
+	}
+	.interact-page-content{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:100;
+	}
+	.fenghuang{
+		width:750/@base;
+		margin-left:-750/@base;
+		display:none;
+	}
+	.ship{
+		width:1200/@base;
+		margin-left:-1200/@base;
+		display:none;
+	}
+	.interact-page-footer{
+		display:none;
+		width:100%;
+		position:absolute;
+		bottom:105/@base;
+		left:0;
+		text-align:center;
+		color:#fff;
+		h3{
+			.font(normal,20px,1.5,'Microsoft YaHei');
+			margin-bottom:0.5em;
+			.animation_delay(0.3s);
+		}
+		.text{
+			.font(normal,28px,1.5,'Microsoft YaHei');
+			margin-bottom:0.5em;
+			.animation_delay(0.6s);
+		}
+		.img-btn{
+			width:278/@base;
+			display:inline-block;
+			.animation_delay(0.9s);
+		}
+	}
+
+}
 
 
 
