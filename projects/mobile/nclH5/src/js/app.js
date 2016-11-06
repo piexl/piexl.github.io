@@ -17,8 +17,57 @@ var qrcode = new QRCode('qrcode', {
 //加载资源
 var loader = new resLoader({
 	resources : [
+		'imgs/closebtn.png',
+		'imgs/cloud_bg.jpg',
+		'imgs/cloud1.png',
+		'imgs/cloud2.png',
+		'imgs/cloud3.png',
+		'imgs/cloud4.png',
+		'imgs/cloudbrush_a_.png',
+		'imgs/drawbtn.jpg',
+		'imgs/drawing_img1.png',
+		'imgs/drawing_text.png',
+		'imgs/face_text0.png',
+		'imgs/face_text1.png',
+		'imgs/face_text2.png',
+		'imgs/FHg.gif',
+		'imgs/line_white.png',
 		'imgs/loading.gif',
-		'imgs/loading_car.png'
+		'imgs/loading_car.png',
+		'imgs/next_btn.png',
+		'imgs/next_btn_tip.png',
+		'imgs/noPrize_tipimg.png',
+		'imgs/p0_bg.jpg',
+		'imgs/p0_sea.png',
+		'imgs/p0_ship.png',
+		'imgs/p1_0bg.jpg',
+		'imgs/p1_bg.jpg',
+		'imgs/p2_bg.jpg',
+		'imgs/p3_bg.jpg',
+		'imgs/p1_bg.jpg',
+		'imgs/p2_bg.jpg',
+		'imgs/p3_bg.jpg',
+		'imgs/p4_bg.jpg',
+		'imgs/p5_bg.jpg',
+		'imgs/p5_title.png',
+		'imgs/p5_videoface.jpg',
+		'imgs/p7_footer.gif',
+		'imgs/p7_logo.png',
+		'imgs/p7_title.png',
+		'imgs/prize_0.jpg',
+		'imgs/prize_1.jpg',
+		'imgs/prize_2.jpg',
+		'imgs/prize_3.jpg',
+		'imgs/prize_4.jpg',
+		'imgs/qrcode_ncl.jpg',
+		'imgs/seabg.jpg',
+		'imgs/ship.png',
+		'imgs/submit_success.png',
+		'imgs/successbg.jpg',
+		'imgs/tryaginbtn.jpg',
+		'imgs/win_img1.png',
+		'imgs/win_img2.png',
+		'imgs/win_img3.jpg'
 	],
 	onStart : function(total){
 		console.log('start:'+total);
@@ -35,10 +84,20 @@ var loader = new resLoader({
 		$("#main").show();
 		$("#face-page").addClass('startAnimate');
 		timeIit();
+		// var firstTouch = true;
+		// $('body').bind("touchstart", function(e) {
+		//     if (firstTouch) {
+		//     	$("#audioBtn").show();
+		//         firstTouch = false;
+		//         document.getElementById('bgMusic').play();
+		//     } else {
+		//         return;
+		//     }
+		// });
 		//幻灯片初始化
 		mainSwiper = new Swiper ('#slider', {
 			direction: 'vertical',
-			initialSlide:8,
+			initialSlide:0,
 			nextButton: '.swiper-next',
 			onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
 			    swiperAnimateCache(swiper); //隐藏动画元素 
@@ -48,7 +107,6 @@ var loader = new resLoader({
 				swiperAnimate(swiper); 
 		     	if(swiper.activeIndex == 8){
 		     		$("#slider .swiper-next").hide();
-		     		
 		     		console.log('出现二维码');
 		     		qrcode.makeCode(qrText);
 		     	}else{
@@ -68,14 +126,19 @@ var start_Time = 0;
 function timeIit(){
 	time_int = window.setInterval(function(){
 		start_Time += 1/24;
-		if(parseInt(start_Time)==14){
-			//$("#face-page").addClass('ani_faceHide');
-			$("#face-page").hide();
+		if(parseInt(start_Time)==12){
+			$("#face-page .cloudbrush").addClass('startAnimate');
 			$("#slider .slide0").addClass('animated');
+		}
+		if(parseInt(start_Time)==13){
+			$("#face-page .cloudbrush").addClass('cloudbrush_fadeOut');
+		}
+		if(parseInt(start_Time)==14){
+			$("#face-page").hide();
 		}
 		if (timeFlag){
 			var FHml = parseInt($(".fenghuang").css('margin-left').split("px")[0]);
-			var shipMl = parseInt($(".ship").css('margin-left').split("px")[0]);
+			var shipMl = parseInt($(".ship").css('left'));
 			//console.log('ml',ml);
 			//console.log('shipMl',shipMl);
 			if(FHml+$(".fenghuang").width()>bodyWidth && fhFlyState){
@@ -87,8 +150,10 @@ function timeIit(){
 				$(".fenghuang").hide();
 				$("#interact-page .cloudbg").addClass('animated fadeOut');
 				$("#interact-page .cloudbrush").addClass('startAnimate');
+				shipmoveState = true;
+				$("#interact-page").addClass('startAnimate');
 				setTimeout(function(){
-					shipmoveState = true;
+					$("#interact-page .cloudbrush").addClass('cloudbrush_fadeOut');
 				},1000);
 			}
 			if($(".ship").width()+shipMl>bodyWidth>0 && shipmoveState){
@@ -116,23 +181,37 @@ function ScanComplete(){
 	fhFlyState  = true;
 }
 // 船移动
+var ship_vx = 4;//x轴速度
+var ship_vy = -0.2;//y轴速度
 function shipmove(){
 	if(shipmoveState && !fhFlyState){
-		var ml = parseInt($(".ship").css('margin-left').split("px")[0]);
-		var mt = parseFloat($(".ship").css('margin-top').split("px")[0]);
+		var ml = parseInt($(".ship").css('left'));
+		var mb = parseFloat($(".ship").css('bottom'));
+		// console.log(mb+ship_vy);
 		$(".ship").show();
 		$(".ship").css({
-			'margin-left':ml+1,
-			'margin-top':mt+0.3
+			'left':ml+ship_vx,
+			'bottom':mb+ship_vy
 		});
 	}
 }
 //凤凰飞行
+var fly_vx = 4;//x轴速度
+var fly_vy = 0;//y轴速度
+var fly_ay = -0.05;//y轴加速度
 function fhFly(){
 	if(fhFlyState){
 		var ml = parseInt($(".fenghuang").css('margin-left').split("px")[0]);
+		var mt = parseFloat($(".fenghuang").css('margin-top').split("px")[0]);
+		var transformRotate = $(".fenghuang").css('transform');
+		//console.log('mt',mt,'fly_vy',fly_vy,'tr',transformRotate);
 		$(".fenghuang").show();
-		$(".fenghuang").css('margin-left',ml+1);
+		fly_vy = fly_vy+fly_ay;
+		if(fly_vy<-2.4 || fly_vy>2){
+			fly_ay = -fly_ay;
+		}
+		$(".fenghuang").css('margin-top',mt+fly_vy);
+		$(".fenghuang").css('margin-left',ml+fly_vx);
 	}
 }
 //抽奖按钮
@@ -182,10 +261,22 @@ $('.slider-video').click(function(event) {
 	console.log('videourl',videourl);
 	$('.over-layer-video video').attr('src',videourl);
 	$('.over-layer-video').show();
+    if(!music.paused){
+        music.pause();
+        $("#audioBtn").removeClass("play").addClass("pause");
+    }
 });
 //视频遮盖的关闭
 $('.over-layer-video').on('click','.closebtn',function(){
 	$(this).parents('.over-layer-video').hide();
+	var video = $('.over-layer-video video')[0];
+    if(music.paused){
+        music.play();
+        $("#audioBtn").removeClass("pause").addClass("play");
+    }
+    if(!video.play){
+        video.paused();
+    }
 });
 //抽奖中
 function drawIng(){
@@ -209,12 +300,24 @@ function openOverLayer(overLayerName,prizeName,prizePic){
 		$("#over-layer .prizeName").html(prizeName);
 		$("#over-layer .prizePic img").attr('src',prizePic);
 	}
-	$("#over-layer ."+overLayerName).siblings().hide();
-	$("#over-layer ."+overLayerName).show();
-	$("#over-layer").addClass('over-layer-show');
+	$("#over-layer .over-layer-content").addClass('over-layer-hide').removeClass('over-layer-show');
+	$("#over-layer ."+overLayerName).addClass('over-layer-show');
+	$("#over-layer").show();
 }
 // 关闭遮盖层
 function closeOverLayer(){
-	$("#over-layer .over-layer-inner").hide();
-	$("#over-layer").removeClass('over-layer-show');
+	$("#over-layer .over-layer-content").addClass('over-layer-hide');
+	$("#over-layer").hide();
 }
+//音乐控制
+var music = document.getElementById("bgMusic");
+$("#audioBtn").click(function(){
+    if(music.paused){
+        music.play();
+        $("#audioBtn").removeClass("pause").addClass("play");
+    }else{
+        music.pause();
+        $("#audioBtn").removeClass("play").addClass("pause");
+    }
+});
+

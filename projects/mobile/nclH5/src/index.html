@@ -22,6 +22,8 @@
 	</div>
 </div>
 <div id="main">
+	<a class="mscBtn mscBtn-white play" id="audioBtn"></a>
+	<audio id="bgMusic" src="./imgs/bgMusic.mp3" loop="loop" autoplay="true"></audio>
 	<!-- 封面开始 -->
 	<div id="face-page">
 		<div class="face-page-inner">
@@ -57,7 +59,7 @@
 	    <div class="swiper-wrapper">
 	        <div class="swiper-slide slide0">
 	        	<div class="swiper-slide-inner">
-		        	<div class="slide0-cloud"></div>
+		        	<div class="slide0_cloud"></div>
 		        	<div class="slide0_sea"></div>
 		        	<div class="slide0_ship"><img src="./imgs/p0_ship.png" alt=""></div>
 	        	</div>
@@ -213,9 +215,10 @@
 	</div>
 	<!-- 全屏滑动结束 -->
 	<!-- 双屏互动开始 -->
-	<div id="interact-page" class="animated fadeIn">
+	<div id="interact-page" class="animated fadeIn startAnimate">
 		<div class="interact-page-inner">
-			<div class="seabg"></div>
+        	<div class="slide0_cloud"></div>
+        	<div class="slide0_sea"></div>
 			<div class="cloudbg">
 				<div class="cloud cloud1"></div>
 				<div class="cloud cloud2"></div>
@@ -243,72 +246,79 @@
 		</div>
 	</div>
 	<!-- 双屏互动结束 -->
-
 	<!-- 遮盖层开始 -->
 	<div class="over-layer animated fadeIn" id="over-layer">
-		<!-- 抽奖中开始 -->
-		<div class="over-layer-inner over-layer-drawing animated fadeIn">
-			<div class="over-layer-content">
-				<div class="drawing-tip"><img src="./imgs/drawing_img1.png" alt=""></div>
-				<div class="drawing-text"><img src="./imgs/drawing_text.png" alt=""></div>
+		<div class="over-layer-inner">
+			<div class="cloudbg">
+				<div class="cloud cloud1"></div>
+				<div class="cloud cloud2"></div>
+				<div class="cloud cloud3"></div>
+				<div class="cloud cloud4"></div>
 			</div>
-		</div>
-		<!-- 抽奖中结束 -->
-		<!-- 中奖开始 -->
-		<div class="over-layer-inner over-layer-win animated fadeIn">
-			<div class="over-layer-content text-center">
-				<div class="over-layer-header">
-					<h3 class="animated fadeInUp">恭喜您</h3>
-					<p class="title-tip animated zoomIn"><img src="./imgs/win_img1.png" alt=""></p>
-				</div>
-				<div class="over-layer-prize">
-					<h3 class="animated fadeInUp">获得一张</h3>
-					<p class="prizeName animated fadeInUp"></p>
-					<p class="prizePic animated zoomIn"><img src="" alt=""></p>
-				</div>
-				<div class="line animated fadeInUp"><img src="./imgs/win_img2.png" alt=""></div>
-				<div class="over-layer-footer">
-					<h3 class="animated fadeInUp">填写联系方式，领取奖品</h3>
-					<p class="input1 animated fadeInUp"><input type="text" placeholder="姓名" id="userName"></p>
-					<p class="input2 animated fadeInUp"><input type="text" placeholder="E-mail" id="userEamil"></p>
-					<p class="input3 animated fadeInUp"><input type="number" placeholder="手机号" id="userPhone"></p>
-					<p class="input4 animated fadeInUp"><button class="imgbtn" id="submitbtn"><img src="./imgs/win_img3.jpg" alt=""></button></p>
+			<!-- 抽奖中开始 -->
+			<div class="over-layer-content over-layer-drawing animated fadeIn">
+				<div class="over-layer-content-inner">
+					<div class="drawing-tip"><img src="./imgs/drawing_img1.png" alt=""></div>
+					<div class="drawing-text"><img src="./imgs/drawing_text.png" alt=""></div>
 				</div>
 			</div>
-		</div>
-		<!-- 中奖结束 -->
-		<!-- 没中奖开始 -->
-		<div class="over-layer-inner over-layer-noPrize animated fadeIn">
-			<div class="over-layer-content text-center">
-				<div class="over-layer-header">
-					<p class="tipimg animated fadeInUp"><img src="./imgs/noPrize_tipimg.png" alt=""></p>
-					<h3 class="animated fadeInUp">很遗憾</h3>
-					<p class="tiptext animated fadeInUp">你离奖品只有一步之遥</p>
-				</div>
-				<div class="line animated fadeInUp"><img src="./imgs/win_img2.png" alt=""></div>
-				<div class="over-layer-qrcode">
-					<div class="over-layer-qrcode animated zoomIn"><img src="./imgs/qrcode_ncl.jpg" alt=""></div>
-					<p class="text animated fadeInUp">每邀请一位新朋友参与<br/>多一次抽奖机会</p>
-				</div>
-				<button class="imgbtn animated fadeInUp" id='tryaginbtn'><img src="./imgs/tryaginbtn.jpg" alt=""></button>
-			</div>
-		</div>
-		<!-- 没中奖结束 -->
-		<!-- 信息提交成功开始 -->
-		<div class="over-layer-inner over-layer-success animated fadeIn">
-			<div class="over-layer-content text-center">
-				<div class="over-layer-header">
-					<p class="tipimg animated fadeInUp"><img src="./imgs/submit_success.png" alt=""></p>
-					<h3 class="animated fadeInUp">信息提交成功</h3>
-				</div>
-				<div class="line animated fadeInUp"><img src="./imgs/win_img2.png" alt=""></div>
-				<div class="over-layer-qrcode">
-					<div class="over-layer-qrcode animated zoomIn"><img src="./imgs/qrcode_ncl.jpg" alt=""></div>
-					<p class="text animated fadeInUp">扫描二维码关注并<br/>获取活动最新通知</p>
+			<!-- 抽奖中结束 -->
+			<!-- 中奖开始 -->
+			<div class="over-layer-content text-center over-layer-win animated fadeIn">
+				<div class="over-layer-content-inner">
+					<div class="over-layer-header">
+						<h3 class="animated fadeInUp">恭喜您</h3>
+						<p class="title-tip animated zoomIn"><img src="./imgs/win_img1.png" alt=""></p>
+					</div>
+					<div class="over-layer-prize">
+						<h3 class="animated fadeInUp">获得一张</h3>
+						<p class="prizeName animated fadeInUp"></p>
+						<p class="prizePic animated zoomIn"><img src="" alt=""></p>
+					</div>
+					<div class="line animated fadeInUp"><img src="./imgs/win_img2.png" alt=""></div>
+					<div class="over-layer-footer">
+						<h3 class="animated fadeInUp">填写联系方式，领取奖品</h3>
+						<p class="input1 animated fadeInUp"><input type="text" placeholder="姓名" id="userName"></p>
+						<p class="input2 animated fadeInUp"><input type="text" placeholder="E-mail" id="userEamil"></p>
+						<p class="input3 animated fadeInUp"><input type="number" placeholder="手机号" id="userPhone"></p>
+						<p class="input4 animated fadeInUp"><button class="imgbtn" id="submitbtn"><img src="./imgs/win_img3.jpg" alt=""></button></p>
+					</div>
 				</div>
 			</div>
+			<!-- 中奖结束 -->
+			<!-- 没中奖开始 -->
+			<div class="over-layer-content text-center over-layer-noPrize animated fadeIn">
+				<div class="over-layer-content-inner">
+					<div class="over-layer-header">
+						<p class="tipimg animated fadeInUp"><img src="./imgs/noPrize_tipimg.png" alt=""></p>
+						<h3 class="animated fadeInUp">很遗憾</h3>
+						<p class="tiptext animated fadeInUp">你离奖品只有一步之遥</p>
+					</div>
+					<div class="line animated fadeInUp"><img src="./imgs/win_img2.png" alt=""></div>
+					<div class="over-layer-qrcode">
+						<div class="over-layer-qrcode animated zoomIn"><img src="./imgs/qrcode_ncl.jpg" alt=""></div>
+						<p class="text animated fadeInUp">每邀请一位新朋友参与<br/>多一次抽奖机会</p>
+					</div>
+					<button class="imgbtn animated fadeInUp" id='tryaginbtn'><img src="./imgs/tryaginbtn.jpg" alt=""></button>
+				</div>
+			</div>
+			<!-- 没中奖结束 -->
+			<!-- 信息提交成功开始 -->
+			<div class="over-layer-content text-center over-layer-success animated fadeIn">
+				<div class="over-layer-content-inner">
+					<div class="over-layer-header">
+						<p class="tipimg animated fadeInUp"><img src="./imgs/submit_success.png" alt=""></p>
+						<h3 class="animated fadeInUp">信息提交成功</h3>
+					</div>
+					<div class="line animated fadeInUp"><img src="./imgs/win_img2.png" alt=""></div>
+					<div class="over-layer-qrcode">
+						<div class="over-layer-qrcode animated zoomIn"><img src="./imgs/qrcode_ncl.jpg" alt=""></div>
+						<p class="text animated fadeInUp">扫描二维码关注并<br/>获取活动最新通知</p>
+					</div>
+				</div>
+			</div>
+			<!-- 信息提交成功结束 -->
 		</div>
-		<!-- 信息提交成功结束 -->
 	</div>
 	<!-- 遮盖层结束 -->
 	<div class="over-layer-video animated fadeIn">
