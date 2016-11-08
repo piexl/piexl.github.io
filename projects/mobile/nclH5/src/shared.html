@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>nclh5</title>
+<link rel="stylesheet" href="./css/app.css">
+<script src="./lib/flexible.js"></script>
+<script src="./lib/resLoader.js"></script>
+<script src="./lib/jquery.min.js"></script>
+</head>
+<body>
+<div id="loading">
+	<div class="loading-inner">
+		<img src="./imgs/loading_car.png" alt="" class="loading-car">
+		<img src="./imgs/loading.gif" alt="">
+	</div>
+</div>
+<div id="main">
+	<a class="mscBtn mscBtn-white play" id="audioBtn"></a>
+	<audio id="bgMusic" src="./imgs/bgMusic.mp3" loop="loop" autoplay="true"></audio>
+	<!-- 双屏互动开始 -->
+	<div id="interact-page" class="animated fadeIn">
+		<div class="interact-page-inner">
+        	<div class="slide0_cloud"></div>
+        	<div class="slide0_sea"></div>
+			<div class="cloudbg">
+				<div class="cloud cloud1"></div>
+				<div class="cloud cloud2"></div>
+				<div class="cloud cloud3"></div>
+				<div class="cloud cloud4"></div>
+			</div>
+			<div class="cloudbrush cloudbrush_b"></div>
+			<div class="interact-page-content">
+        		<div class="page-head">
+        			<div class="logo animated fadeInDown"><img src="./imgs/p7_logo.png" alt=""></div>
+        			<div class="title animated zoomIn"><img src="./imgs/p7_title.png" alt=""></div>
+        		</div>
+        		<div class="fenghuang">
+        			<img src="./imgs/FHg.gif" alt="">
+        		</div>
+        		<div class="ship">
+        			<img src="./imgs/ship.png" alt="">
+        		</div>
+        		<div class="interact-page-footer fadeIn animated">
+        			<button class="fadeInUp animated img-btn" id="wantDrawbtn"><img src="./imgs/drawbtn_.jpg" alt=""></button>
+        		</div>
+			</div>
+		</div>
+	</div>
+	<!-- 双屏互动结束 -->
+</div>
+<script src="./js/shared.js"></script>
+</body>
+</html>

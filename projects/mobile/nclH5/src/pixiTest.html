@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>nclh5</title>
+<link rel="stylesheet" href="./css/app.css">
+<script src="./lib/flexible.js"></script>
+<script src="./lib/resLoader.js"></script>
+<script src="./lib/jquery.min.js"></script>
+<script src="./lib/pixi.min.js"></script>
+</head>
+<body>
+<div id="loading">
+	<div class="loading-inner">
+		<img src="./imgs/loading_car.png" alt="" class="loading-car">
+		<img src="./imgs/loading.gif" alt="">
+	</div>
+</div>
+<div id="main">
+	<a class="mscBtn mscBtn-white play" id="audioBtn"></a>
+	<audio id="bgMusic" src="./imgs/bgMusic.mp3" loop="loop" autoplay="true"></audio>
+	<div id="game"></div>
+</div>
+<script src="./js/Game.js"></script>
+<script>
+    var game = new Game($('#game'));
+    console.log(game);
+    game.isInvite = true;
+    game.init();
+    game.onLoaded = function(){
+    	console.log('onLoaded');
+        $("#loading").hide();
+        $("#main").show();
+    }
+    game.flyBeat = function(){
+        console.log('飞到边界了');
+    }
+    game.flyOver = function(){
+        console.log('飞到出去了');
+    }
+    game.shipBeat = function(){
+        console.log('船到边界了');
+    }
+    game.shipOver = function(){
+        alert('船出去了');
+    }
+
+</script>
+</body>
+</html>

@@ -67,7 +67,9 @@ var loader = new resLoader({
 		'imgs/tryaginbtn.jpg',
 		'imgs/win_img1.png',
 		'imgs/win_img2.png',
-		'imgs/win_img3.jpg'
+		'imgs/win_img3.jpg',
+		'imgs/pause_white.png',
+		'imgs/play_white.png'
 	],
 	onStart : function(total){
 		console.log('start:'+total);
