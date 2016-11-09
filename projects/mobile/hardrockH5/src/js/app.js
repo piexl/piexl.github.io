@@ -34,7 +34,7 @@ $("#playbtn").click(function(){
 });
 //监听视频是否播放完毕
 Media.addEventListener('ended',function(){
-	alert('test');
+	//alert('test');
 	$("#shareLink").trigger("click");
 	//window.location.href = "./share.html";
 });
