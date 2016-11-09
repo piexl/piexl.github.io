@@ -13,6 +13,31 @@
 	document.write(unescape('%3Cscript src="http://tripshow.com/weixinapp/tripshow/weixin.js?url='+escape(encodeURIComponent(location.origin+location.pathname+location.search))+'" type="text/javascript" %3E%3C/script%3E'));
 </script>
 <script>
+// 浏览器的判断
+var browser = {
+    versions:function(){
+    var u = navigator.userAgent, app = navigator.appVersion;   
+    return {//移动终端浏览器版本信息   
+        trident: u.indexOf('Trident') > -1, //IE内核  
+        presto: u.indexOf('Presto') > -1, //opera内核  
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核  
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端  
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器  
+        iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器  
+        iPad: u.indexOf('iPad') > -1, //是否iPad    
+        webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+    };  
+    }(),  
+    language:(navigator.browserLanguage || navigator.language).toLowerCase()  
+}
+// if(browser.versions.mobile || browser.versions.ios || browser.versions.android || browser.versions.iPhone || browser.versions.iPad){
+//     console.log('移动端');
+// }else{
+//     console.log('pc');
+//     location.href='pc.html';
+// }
 window.wx = new WXJSB({
 	timeLine: {
         title: "做好准备！硬石风暴即将卷土重来",
@@ -39,7 +64,9 @@ window.wx = new WXJSB({
 <div id="loading"><img src="./imgs/loading.gif" alt="loading" class="loading-img"></div>
 <div id="main">
     <div class="playbtn" id="playbtn"><img src="./imgs/go.gif" alt="播放视频" class="zoomIn animated"></div>
-    <div class="video-box" id="video-box"><video controls="" src="./imgs/movie.mp4" id="video"></video></div>
+    <div class="video-box" id="video-box">
+        <video src="./imgs/movie.mp4" id="video" poster="" preload="auto" style="height:100%; display: block;"></video>
+    </div>
 </div>
 <script src="./js/app.js"></script>
 </body>

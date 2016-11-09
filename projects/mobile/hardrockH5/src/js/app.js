@@ -1,5 +1,4 @@
 
-$('body').bind("touchmove", function(e) {e.preventDefault();});
 var bodyWidth = document.body.offsetWidth;
 var bodyHeight = document.body.offsetHeight;
 //设计稿750*1206
@@ -21,9 +20,7 @@ var loader = new resLoader({
 	}
 });
 loader.start();
-var video;
-// 开关音效
-video = document.getElementById("video") || null;
+var Media = document.getElementById("video") || null;
 function loadIn(){
 	$("#loading").hide();
 	$("#main").show();
@@ -32,18 +29,12 @@ function loadIn(){
 $("#playbtn").click(function(){
 	$("#playbtn").hide();
 	$("#video-box").show();
-	video.play();
+	Media.play();
 });
-function isWeiXin(){
-    var ua = window.navigator.userAgent.toLowerCase();
-    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-        return true;
-    }else{
-        return false;
-    }
+eventTester = function(e){
+   	Media.addEventListener(e,function(){	         
+   		window.location.href = "./share.html";
+   	});
 }
-//监听视频是否播放完毕
-video.addEventListener('ended',function(){
-  //$("#cover").show();
-  window.location.href = "./share.html";
-});
+eventTester("ended");
+$('body').bind("touchmove", function(e) {e.preventDefault();});
