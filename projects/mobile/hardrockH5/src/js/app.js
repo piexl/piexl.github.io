@@ -20,6 +20,7 @@ var loader = new resLoader({
 	}
 });
 loader.start();
+
 var Media = document.getElementById("video") || null;
 function loadIn(){
 	$("#loading").hide();
@@ -31,10 +32,9 @@ $("#playbtn").click(function(){
 	$("#video-box").show();
 	Media.play();
 });
-eventTester = function(e){
-   	Media.addEventListener(e,function(){	         
-   		window.location.href = "./share.html";
-   	});
-}
-eventTester("ended");
+//监听视频是否播放完毕
+Media.addEventListener('ended',function(){
+	alert('test');
+	window.location.href = "./share.html";
+});
 $('body').bind("touchmove", function(e) {e.preventDefault();});
