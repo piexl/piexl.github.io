@@ -9,14 +9,8 @@ var vUnit = bodyHeight/1200;
 var loader = new resLoader({
 	resources : [
 	  	"./imgs/loading.gif",
-	  	"./imgs/over.jpg",
-	  	"./imgs/heart.mp3",
-	  	"./imgs/switch.mp3",
-	  	"./imgs/share.jpg",
-	  	"./imgs/switch_down.png",
-	  	"./imgs/switch_up.png",
-	  	"./imgs/tipline.gif",
-	  	"./imgs/title.png",
+	  	"./imgs/go.gif",
+	  	"./imgs/movie.mp4"
 	],
 	onStart : function(total){
 		console.log('start:'+total);
@@ -36,26 +30,17 @@ loader.start();
 var bgmusic,
 	switchMusic,
 	video;
-//背景音乐的控制
-bgmusic = document.getElementById("bgMusic") || null;
 // 开关音效
-switchMusic = document.getElementById("switchMusic") || null;
 video = document.getElementById("video") || null;
 function loadIn(){
 	$("#loading").hide();
-	$("#face").show();
-	bgmusic.play();
+	$("#main").show();
 }
 //播放视频按钮
 $("#playbtn").click(function(){
-	$(this).addClass('played');
-	switchMusic.play();
-	setTimeout(function(){
-		$("#face").hide();
-		$("#main").show();
-		bgmusic.pause();
-		video.play();
-	},800);
+	$("#playbtn").hide();
+	$("#video-box").show();
+	video.play();
 });
 function isWeiXin(){
     var ua = window.navigator.userAgent.toLowerCase();

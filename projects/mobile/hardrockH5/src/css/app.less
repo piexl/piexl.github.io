@@ -4,7 +4,7 @@
 html,body{width:100%; margin:0 auto; height:100%; overflow:hidden;}
 
 //设计稿750px分成100份，1a=7.5px, 1rem=75px;
-@baseU:75rem;
+@base:75rem;
 
 .imgBox{
 	font-size:0;
@@ -21,6 +21,24 @@ button{
 		.imgBox;
 	}
 }
+body{
+	background-color:#212121;
+}
+
+//动画的定义
+.goZoomIn{
+  from {
+  	.transform_scale3d(0.46,0.46,1);
+  }
+  to {
+  	.transform_scale3d(1,1,1);
+  }
+}
+@keyframes goZoomIn{ .goZoomIn}
+@-moz-keyframes goZoomIn{ .goZoomIn}
+@-webkit-keyframes goZoomIn{ .goZoomIn}
+@-o-keyframes goZoomIn{ .goZoomIn}
+
 //加载页面
 #loading{
 	width:100%;
@@ -29,70 +47,43 @@ button{
 	top:0;
 	left:0;
 	z-index:200;
-	background: url(./../imgs/loading.gif) center center no-repeat;
-	background-size:cover;
+	background:#111011;
+	.center_v;
+	.loading-img{
+		width:210/@base;
+	}
 }
 #main{
 	width:100%;
 	height:100%;
 	display:none;
 	overflow:hidden;
-	background-color:#181723;
-	video{
-		width:100%;
-		height:100%;
-	}
-}
-#face{
-	display:none;
-	width:100%;
-	height:100%;
-	background-color:#000;
-	position:relative;
-	.title{
-		width:378/@baseU;
-		font-size:0;
-		line-height:0;
-		padding-top:282/@baseU;
-		padding-left:190/@baseU;
-	}
 	.playbtn{
-		width:114/@baseU;
-		height:138/@baseU;
-		position: absolute;
-		bottom:30/@baseU;
-		right:20/@baseU;
-		padidng:0;
-		text-indent:-999em;
-		background:url(./../imgs/switch_up.png) 0 0 no-repeat;
-		background-size:100% 100%;
-		&.played{
-			background:url(./../imgs/switch_down.png) 0 0 no-repeat;
-			background-size:100% 100%;
-		}
-		.animation_delay(1s);
-	}
-	.lineTip{
-		width:166/@baseU;
-		position: absolute;
-		bottom:160/@baseU;
-		right:60/@baseU;
-		.animation_delay(1.5s);
-	}
-}
-#cover{
-	width:100%;
-	height:100%;
-	display:none;
-	position:fixed;
-	top:0;
-	left:0;
-	z-index:100;
-	overflow:hidden;
-	font-size:0;
-	line-height:0;
-	img{
 		width:100%;
 		height:100%;
+		.center_v;
+		background:#111011;
+		img{
+			width:481/@base;
+			.transform_scale3d(0.46,0.46,1);
+			.animation(goZoomIn,0.3s,linear,1,normal,forwards);
+		}
+	}
+	#video-box{
+		width:100%;
+		height:100%;
+		display:none;
+		video{
+			width:100%;
+			height:100%;
+		}
 	}
 }
+.shrepage{
+	.center_v;
+	background-color:#000000;
+	img{
+		width:270/@base;
+	}
+}
+

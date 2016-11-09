@@ -36,17 +36,11 @@ window.wx = new WXJSB({
 </script>
 </head>
 <body>
-<div class="hide">
-    <audio id="bgMusic" src="./imgs/heart.mp3" loop="loop"></audio>
-    <audio id="switchMusic" src="./imgs/switch.mp3"></audio>
+<div id="loading"><img src="./imgs/loading.gif" alt="loading" class="loading-img"></div>
+<div id="main">
+    <div class="playbtn" id="playbtn"><img src="./imgs/go.gif" alt="播放视频" class="zoomIn animated"></div>
+    <div class="video-box" id="video-box"><video controls="" src="./imgs/movie.mp4" id="video"></video></div>
 </div>
-<div id="loading"></div>
-<div id="face">
-	<h3 class="title animated fadeIn"><img src="./imgs/title.png" alt=""></h3>
-	<div class="lineTip animated fadeIn"><img src="./imgs/tipline.gif" alt=""></div>
-	<button class="playbtn animated fadeInUp" id="playbtn">播放视频</button>
-</div>
-<div id="main"><video controls="" src="./imgs/movie.mp4" id="video"></video></div>
 <script src="./js/app.js"></script>
 </body>
 </html>

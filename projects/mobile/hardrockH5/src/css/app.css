@@ -3632,6 +3632,127 @@ button.img-btn {
   font-size: 0;
   line-height: 0;
 }
+body {
+  background-color: #212121;
+}
+.goZoomIn from {
+  transform: scale3d(0.46, 0.46, 1);
+  -ms-transform: scale3d(0.46, 0.46, 1);
+  /* IE 9 */
+  -moz-transform: scale3d(0.46, 0.46, 1);
+  /* Firefox */
+  -webkit-transform: scale3d(0.46, 0.46, 1);
+  /* Safari 和 Chrome */
+  -o-transform: scale3d(0.46, 0.46, 1);
+  /* Opera */
+}
+.goZoomIn to {
+  transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  /* IE 9 */
+  -moz-transform: scale3d(1, 1, 1);
+  /* Firefox */
+  -webkit-transform: scale3d(1, 1, 1);
+  /* Safari 和 Chrome */
+  -o-transform: scale3d(1, 1, 1);
+  /* Opera */
+}
+@keyframes goZoomIn {
+  from {
+    transform: scale3d(0.46, 0.46, 1);
+    -ms-transform: scale3d(0.46, 0.46, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(0.46, 0.46, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(0.46, 0.46, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(0.46, 0.46, 1);
+    /* Opera */
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(1, 1, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(1, 1, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(1, 1, 1);
+    /* Opera */
+  }
+}
+@-moz-keyframes goZoomIn {
+  from {
+    transform: scale3d(0.46, 0.46, 1);
+    -ms-transform: scale3d(0.46, 0.46, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(0.46, 0.46, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(0.46, 0.46, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(0.46, 0.46, 1);
+    /* Opera */
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(1, 1, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(1, 1, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(1, 1, 1);
+    /* Opera */
+  }
+}
+@-webkit-keyframes goZoomIn {
+  from {
+    transform: scale3d(0.46, 0.46, 1);
+    -ms-transform: scale3d(0.46, 0.46, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(0.46, 0.46, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(0.46, 0.46, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(0.46, 0.46, 1);
+    /* Opera */
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(1, 1, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(1, 1, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(1, 1, 1);
+    /* Opera */
+  }
+}
+@-o-keyframes goZoomIn {
+  from {
+    transform: scale3d(0.46, 0.46, 1);
+    -ms-transform: scale3d(0.46, 0.46, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(0.46, 0.46, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(0.46, 0.46, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(0.46, 0.46, 1);
+    /* Opera */
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    /* IE 9 */
+    -moz-transform: scale3d(1, 1, 1);
+    /* Firefox */
+    -webkit-transform: scale3d(1, 1, 1);
+    /* Safari 和 Chrome */
+    -o-transform: scale3d(1, 1, 1);
+    /* Opera */
+  }
+}
 #loading {
   width: 100%;
   height: 100%;
@@ -3639,78 +3760,90 @@ button.img-btn {
   top: 0;
   left: 0;
   z-index: 200;
-  background: url(../imgs/loading.gif) center center no-repeat;
-  background-size: cover;
+  background: #111011;
+  /* Center vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#loading .loading-img {
+  width: 2.8rem;
 }
 #main {
   width: 100%;
   height: 100%;
   display: none;
   overflow: hidden;
-  background-color: #181723;
 }
-#main video {
+#main .playbtn {
   width: 100%;
   height: 100%;
+  /* Center vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: #111011;
 }
-#face {
-  display: none;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  position: relative;
+#main .playbtn img {
+  width: 6.41333333rem;
+  transform: scale3d(0.46, 0.46, 1);
+  -ms-transform: scale3d(0.46, 0.46, 1);
+  /* IE 9 */
+  -moz-transform: scale3d(0.46, 0.46, 1);
+  /* Firefox */
+  -webkit-transform: scale3d(0.46, 0.46, 1);
+  /* Safari 和 Chrome */
+  -o-transform: scale3d(0.46, 0.46, 1);
+  /* Opera */
+  animation: goZoomIn 0.3s linear 1 normal forwards;
+  -ms-animation: goZoomIn 0.3s linear 1 normal forwards;
+  -moz-animation: goZoomIn 0.3s linear 1 normal forwards;
+  -webkit-animation: goZoomIn 0.3s linear 1 normal forwards;
+  -o-animation: goZoomIn 0.3s linear 1 normal forwards;
 }
-#face .title {
-  width: 5.04rem;
-  font-size: 0;
-  line-height: 0;
-  padding-top: 3.76rem;
-  padding-left: 2.53333333rem;
-}
-#face .playbtn {
-  width: 1.52rem;
-  height: 1.84rem;
-  position: absolute;
-  bottom: 0.4rem;
-  right: 0.26666667rem;
-  padidng: 0;
-  text-indent: -999em;
-  background: url(../imgs/switch_up.png) 0 0 no-repeat;
-  background-size: 100% 100%;
-  animation-delay: 1s;
-  -ms-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  -webkit-animation-delay: 1s;
-  -o-animation-delay: 1s;
-}
-#face .playbtn.played {
-  background: url(../imgs/switch_down.png) 0 0 no-repeat;
-  background-size: 100% 100%;
-}
-#face .lineTip {
-  width: 2.21333333rem;
-  position: absolute;
-  bottom: 2.13333333rem;
-  right: 0.8rem;
-  animation-delay: 1.5s;
-  -ms-animation-delay: 1.5s;
-  -moz-animation-delay: 1.5s;
-  -webkit-animation-delay: 1.5s;
-  -o-animation-delay: 1.5s;
-}
-#cover {
+#main #video-box {
   width: 100%;
   height: 100%;
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  overflow: hidden;
-  font-size: 0;
-  line-height: 0;
 }
-#cover img {
+#main #video-box video {
   width: 100%;
   height: 100%;
+}
+.shrepage {
+  /* Center vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: #000000;
+}
+.shrepage img {
+  width: 3.6rem;
 }
