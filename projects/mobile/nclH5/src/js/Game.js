@@ -1,10 +1,10 @@
 
 var Game = function($div){
-	var game = this;
-	//var config = $.extend({static:''}, config);
-	
+    var game = this;
+    //var config = $.extend({static:''}, config);
+    
     game.$div = $div;
-	game.isInvite = true;
+    game.isInvite = true;
 
     //设计稿750*1206
     var hUnit = document.body.offsetWidth/750;
@@ -45,7 +45,7 @@ var Game = function($div){
         );
     game.$div.append(renderer.view);
     //加载资源
-    var loadingGameSrc = function (){
+    (function (){
         loader
             .add([
                 './imgs/loading.gif',
@@ -68,30 +68,20 @@ var Game = function($div){
                 './imgs/cloudbush_ab.json',
                 './imgs/ship.png'
             ])
-            .load(game.ofterLoading);
-    }
-
-    //游戏初始化
-    game.init = function(){
-    	loadingGameSrc();
-    }
-
-    //资源加载完成执行
-    game.ofterLoading = function(){
- 		game.onLoaded && game.onLoaded();
-        game.render();
-        game.start();
-    }
+            .load(function(){
+                render();
+            });
+    })();
 
     //渲染游戏
-    game.render = function (){
-		//背景
-		bg = new Sprite(
-		    resources['./imgs/cloud_bg.jpg'].texture
-		);
-		bg.width = renderer.width;
-		bg.height = renderer.height;
-		bg.position.set(0,0);
+    var render = function (){
+        //背景
+        bg = new Sprite(
+            resources['./imgs/cloud_bg.jpg'].texture
+        );
+        bg.width = renderer.width;
+        bg.height = renderer.height;
+        bg.position.set(0,0);
         cloudgoup.addChild(bg);
 
         //云背景
@@ -139,7 +129,6 @@ var Game = function($div){
         fenghuang.position.set(-300*hUnit,810*hUnit);
         fenghuang.rotation = 0;
         fenghuang.animationSpeed = 0.6;
-        fenghuang.play();
         fenghuang.ani_fly = false;
         fenghuang.ani_flyUp = true;
         fenghuang.ani_rotateUp = true;
@@ -224,18 +213,68 @@ var Game = function($div){
         stage.addChild(shipgroup);
         stage.addChild(cloudbrush_a);
         stage.addChild(cloudbrush_b);
-		stage.addChild(cloudgoup);
+        stage.addChild(cloudgoup);
 
         game.animated();
         renderer.render(stage);
+    };
+
+    //游戏初始化
+    game.init = function(){
+        cloudbg.position.set(0,0);
+        cloudbg.ani_move = false;
+
+        logo.position.set(267*hUnit,170*hUnit);
+        logo.alpha = 0;
+        logo.ani_fadeInUp = false;
+
+        title.position.set(375*hUnit,290*hUnit);
+        title.scale.set(0,0);
+        title.ani_zoomIn = false;
+
+        fenghuang.position.set(-300*hUnit,810*hUnit);
+        fenghuang.rotation = 0;
+        fenghuang.play();
+        fenghuang.ani_fly = false;
+
+        shipcloud.position.set(renderer.width,0);
+        shipcloud.ani_move = false;
+
+        seabg.position.set(0,renderer.height);
+        seabg.ani_move = false;
+
+        ship.position.set(0,renderer.height-300*hUnit);
+        ship.ani_move = false;
+        ship.ani_vx = 2*hUnit;//移动的速度
+        ship.moveBeat = false;
+
+        cloudbrush_a.loop = false;
+        cloudbrush_a.alpha = 1;
+        cloudbrush_a.ani_fadeOut = false;
+
+        cloudbrush_b.loop = false;
+        cloudbrush_b.alpha = 1;
+        cloudbrush_b.ani_fadeOut = false;
+
+        cloudgoup.visible = true;
+        cloudgoup.alpha = 1;
+        cloudgoup.ani_fadeOut = false;
+        game.onInit && game.onInit();
     }
 
-    //游戏开始
-    game.start = function (){
+    //飞行开始
+    game.fly = function (){
         cloudbg.ani_move = true;
         logo.ani_fadeInUp = true;
         title.ani_zoomIn = true;
         fenghuang.ani_fly = true;
+    }
+
+    //船开始
+    game.sail = function (){
+        shipcloud.ani_move = true;//船云层开始移动
+        seabg.ani_move = true;//海层开始移动
+        ship.ani_move = true;//船开始移动
     }
 
     //游戏动画
@@ -318,11 +357,6 @@ var Game = function($div){
                     cloudbrush_b.visible = true;
                     cloudbrush_b.play();
                 }
-
-                shipcloud.ani_move = true;//船云层开始移动
-                seabg.ani_move = true;//海层开始移动
-                ship.ani_move = true;//船开始移动
-
                 game.flyOver && game.flyOver();
             }
             //上下飞行

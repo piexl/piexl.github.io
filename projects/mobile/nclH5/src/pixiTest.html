@@ -28,23 +28,28 @@
     var game = new Game($('#game'));
     console.log(game);
     game.isInvite = true;
-    game.init();
-    game.onLoaded = function(){
+    setTimeout(game.init, 3000);
+
+    game.onInit = function(){
     	console.log('onLoaded');
         $("#loading").hide();
         $("#main").show();
+        game.fly();
     }
+
     game.flyBeat = function(){
         console.log('飞到边界了');
     }
     game.flyOver = function(){
         console.log('飞到出去了');
+        game.fly();
     }
     game.shipBeat = function(){
         console.log('船到边界了');
     }
     game.shipOver = function(){
-        alert('船出去了');
+        game.init();
+
     }
 
 </script>
