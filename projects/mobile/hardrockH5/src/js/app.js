@@ -35,6 +35,7 @@ $("#playbtn").click(function(){
 //监听视频是否播放完毕
 Media.addEventListener('ended',function(){
 	alert('test');
-	window.location.href = "./share.html";
+	$("#shareLink").trigger("click");
+	//window.location.href = "./share.html";
 });
 $('body').bind("touchmove", function(e) {e.preventDefault();});
