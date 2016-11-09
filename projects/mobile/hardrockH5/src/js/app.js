@@ -9,17 +9,11 @@ var vUnit = bodyHeight/1200;
 var loader = new resLoader({
 	resources : [
 	  	"./imgs/loading.gif",
-	  	"./imgs/go.gif",
-	  	"./imgs/movie.mp4"
+	  	"./imgs/go.gif"
 	],
 	onStart : function(total){
-		console.log('start:'+total);
 	},
 	onProgress : function(current, total){
-		console.log(current+'/'+total);
-		// var percent = Math.ceil(current/total*100);
-		// if(percent>100){percent=100}
-		// $('.progress').empty().html(percent+'%');
 	},
 	onComplete : function(total){
 		//console.log('加载完毕:'+total+'个资源');
@@ -27,9 +21,7 @@ var loader = new resLoader({
 	}
 });
 loader.start();
-var bgmusic,
-	switchMusic,
-	video;
+var video;
 // 开关音效
 video = document.getElementById("video") || null;
 function loadIn(){
@@ -54,12 +46,4 @@ function isWeiXin(){
 video.addEventListener('ended',function(){
   //$("#cover").show();
   window.location.href = "./share.html";
-});
-//分享按钮事件
-$("body").on('click','.sharebtn',function(){
-	$("#over-layer-share").show();
-});
-//遮盖背景的事件
-$(".over-layer").on('click','.over-layer-bg',function(){
-	$(this).parents('.over-layer').hide();
 });
